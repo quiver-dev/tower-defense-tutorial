@@ -1,0 +1,168 @@
+[gd_scene load_steps=20 format=3 uid="uid://b4bsgajdug3qc"]
+
+[ext_resource type="Texture2D" uid="uid://d06ljw7ag2tes" path="res://assets/tiles/field_tilesheet.png" id="1_vqxpx"]
+[ext_resource type="PackedScene" uid="uid://bs0qa3s4qqrct" path="res://entities/enemies/infantry/infantry_t1.tscn" id="2_mxeu7"]
+[ext_resource type="PackedScene" uid="uid://beyqxjhy27kjd" path="res://maps/objective/objective.tscn" id="3_l27ho"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g4rqo"]
+vertices = PackedVector2Array(29.5, 64, -64, 64, -64, -64, 36, 38, 64, -64, 64, 27)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)]
+outlines = [PackedVector2Array(29.5, 64, -64, 64, -64, -64, 64, -64, 64, 27, 36, 38)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1nuvq"]
+vertices = PackedVector2Array(30, -64, 29, 64, -64, 64, -64, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -64, -64, 64, 29, 64, 30, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_htayy"]
+vertices = PackedVector2Array(64, -30, 64, 64, -64, 64, 39, -34, -64, -64, 27, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)]
+outlines = [PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -30, 39, -34, 27, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tew23"]
+vertices = PackedVector2Array(64, -64, 64, 29.5, -64, 29.5, -64, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -64, -64, 29.5, 64, 29.5, 64, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_megqg"]
+vertices = PackedVector2Array(-64, -29.5, 64, -29, 64, 64, -64, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -29.5, 64, -29, 64, 64, -64, 64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l02k7"]
+vertices = PackedVector2Array(-64, -64, 64, -64, 64, 64, -35.5, 34, -64, 32.5, -32.5, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 2, 5)]
+outlines = [PackedVector2Array(-64, -64, -64, 32.5, -35.5, 34, -32.5, 64, 64, 64, 64, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ateg8"]
+vertices = PackedVector2Array(64, -64, 64, 64, -29, 64, -27.5, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-27.5, -64, -29, 64, 64, 64, 64, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_75acs"]
+vertices = PackedVector2Array(-21, -64, 64, -64, 64, 64, -64, 64, -40, -32, -64, -31.5)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 4)]
+outlines = [PackedVector2Array(-64, -31.5, -40, -32, -21, -64, 64, -64, 64, 64, -64, 64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_h302p"]
+vertices = PackedVector2Array(-26, 64, -13.5, 8.5, 26.5, -21.5, 64, -28.5, 64, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
+outlines = [PackedVector2Array(-26, 64, -13.5, 8.5, 26.5, -21.5, 64, -28.5, 64, 64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r05wx"]
+vertices = PackedVector2Array(64, -64, 64, 30, 27, 21.5, -16.5, -10.5, -28.5, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
+outlines = [PackedVector2Array(-28.5, -64, -16.5, -10.5, 27, 21.5, 64, 30, 64, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ke220"]
+vertices = PackedVector2Array(-64, 64, -64, -64, -30.5, -29, -31, 19, 5.5, 64, 3, 34, 23.5, -28, -3, -32.5, 5.5, -64, 64, -64, 64, 4, 41, 9.5, 64, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(11, 10, 12, 4, 5)]
+outlines = [PackedVector2Array(-64, -64, -64, 64, 5.5, 64, 64, 64, 64, 4, 64, -64, 5.5, -64, -3, -32.5, 23.5, -28, 41, 9.5, 3, 34, -31, 19, -30.5, -29)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x0ptx"]
+vertices = PackedVector2Array(-64, -30, 5, -6, 30.5, 64, -64, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -30, 5, -6, 30.5, 64, -64, 64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r2pis"]
+vertices = PackedVector2Array(32.5, -64, 12, -16, -19.5, 17.5, -64, 29, -64, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
+outlines = [PackedVector2Array(-64, -64, -64, 29, -19.5, 17.5, 12, -16, 32.5, -64)]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_amtsx"]
+vertices = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3s5g"]
+texture = ExtResource("1_vqxpx")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_g4rqo")
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tew23")
+2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l02k7")
+3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_h302p")
+4:0/0 = 0
+4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_x0ptx")
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_1nuvq")
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ateg8")
+3:1/0 = 0
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_r05wx")
+4:1/0 = 0
+4:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_r2pis")
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_htayy")
+1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_megqg")
+2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_75acs")
+3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ke220")
+4:2/0 = 0
+4:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_amtsx")
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pb8tk"]
+tile_size = Vector2i(128, 128)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_j3s5g")
+
+[node name="Map" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pb8tk")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 2, 1, 262144, 2, 2, 262144, 2, 65538, 262144, 2, 65537, 262144, 2, 65536, 262144, 2, 65539, 262144, 2, 4, 262144, 2, 65540, 262144, 2, 5, 262144, 2, 65541, 262144, 2, 6, 262144, 2, 65542, 262144, 2, 65543, 262144, 2, -65532, 262144, 2, -65531, 262144, 2, -65530, 262144, 2, -65529, 262144, 2, -131065, 262144, 2, -196604, 262144, 2, -196605, 262144, 2, -196606, 262144, 2, -196607, 262144, 2, -196608, 262144, 2, -131072, 262144, 2, -65537, 262144, 2, 65546, 196608, 2, 9, 262144, 2, 7, 262144, 2, -196599, 262144, 2, -131062, 262144, 2, -196598, 262144, 2, -196601, 262144, 2, -131070, 262144, 2, 65534, 262144, 2, 65533, 262144, 2, 131069, 262144, 2, 131070, 262144, 2, 196607, 262144, 2, 65544, 262144, 2, 131080, 196608, 2, 196617, 262144, 2, 131082, 262144, 2, 65535, 262144, 2, 131071, 262144, 2, 196605, 262144, 2, 196606, 262144, 2, 131072, 262144, 2, 131073, 262144, 2, 131074, 262144, 2, 131075, 262144, 2, 131076, 262144, 2, 131077, 262144, 2, 131078, 262144, 2, -3, 262144, 2, -2, 262144, 2, -1, 262144, 2, -65536, 262144, 2, -65535, 262144, 2, -65534, 262144, 2, -65533, 262144, 2, 3, 262144, 2, -131069, 262144, 2, -131071, 262144, 2, -65538, 262144, 2, -65539, 262144, 2, -196603, 262144, 2, -131067, 262144, 2, -131068, 262144, 2, -131066, 262144, 2, 131079, 262144, 2, 8, 262144, 2, -65528, 262144, 2, -131064, 262144, 2, -196600, 262144, 2)
+
+[node name="InfantryT1" parent="." instance=ExtResource("2_mxeu7")]
+position = Vector2(63, 187)
+script = null
+
+[node name="Objective" parent="." instance=ExtResource("3_l27ho")]
+position = Vector2(983, 66)

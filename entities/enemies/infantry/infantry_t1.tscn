@@ -1,0 +1,102 @@
+[gd_scene load_steps=21 format=3 uid="uid://bs0qa3s4qqrct"]
+
+[ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_tubwb"]
+[ext_resource type="Texture2D" uid="uid://ddj00e6uc0kcf" path="res://assets/enemies/infantry/tier1/die_00.png" id="2_4hyv2"]
+[ext_resource type="Texture2D" uid="uid://bd0rbuowumkg5" path="res://assets/enemies/infantry/tier1/die_01.png" id="3_ca8a8"]
+[ext_resource type="Texture2D" uid="uid://dwyuhw444iwvw" path="res://assets/enemies/infantry/tier1/die_02.png" id="4_7y183"]
+[ext_resource type="Texture2D" uid="uid://ckh6vufvugt1p" path="res://assets/enemies/infantry/tier1/die_03.png" id="5_mxjuf"]
+[ext_resource type="Texture2D" uid="uid://ps3e1pytso2e" path="res://assets/enemies/infantry/tier1/die_04.png" id="6_fvkhy"]
+[ext_resource type="Texture2D" uid="uid://bq5waf8ygl6nq" path="res://assets/enemies/infantry/tier1/die_05.png" id="7_iyhbl"]
+[ext_resource type="Texture2D" uid="uid://5y31y64tih4n" path="res://assets/enemies/infantry/tier1/die_06.png" id="8_ntp25"]
+[ext_resource type="Texture2D" uid="uid://c6ybalus1ejpo" path="res://assets/enemies/infantry/tier1/idle_00.png" id="9_mqbw8"]
+[ext_resource type="Texture2D" uid="uid://d6lrrjjv2miy" path="res://assets/enemies/infantry/tier1/move_00.png" id="10_5g6ig"]
+[ext_resource type="Texture2D" uid="uid://cp4lleluol0jt" path="res://assets/enemies/infantry/tier1/move_01.png" id="11_20x6r"]
+[ext_resource type="Texture2D" uid="uid://owstqf7x7mkr" path="res://assets/enemies/infantry/tier1/move_02.png" id="12_16l44"]
+[ext_resource type="Texture2D" uid="uid://dlw6c7u2khxp" path="res://assets/enemies/infantry/tier1/move_03.png" id="13_31rv2"]
+[ext_resource type="Texture2D" uid="uid://c32vh3hogagsv" path="res://assets/enemies/infantry/tier1/move_04.png" id="14_rpn1i"]
+[ext_resource type="Texture2D" uid="uid://bakwd1r68eyvd" path="res://assets/enemies/infantry/tier1/move_05.png" id="15_wq1qw"]
+[ext_resource type="Texture2D" uid="uid://bigmeebbjg8p0" path="res://assets/enemies/infantry/tier1/move_06.png" id="16_nx6os"]
+[ext_resource type="Texture2D" uid="uid://8yi85l6jhe53" path="res://assets/enemies/infantry/tier1/move_07.png" id="17_tauae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c3n7"]
+atlas = ExtResource("9_mqbw8")
+region = Rect2(0, 0, 90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfy43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4hyv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ca8a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7y183")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mxjuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fvkhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iyhbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ntp25")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c3n7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5g6ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_20x6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_16l44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_31rv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rpn1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wq1qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nx6os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tauae")
+}],
+"loop": true,
+"name": &"move",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cagm2"]
+size = Vector2(51, 61)
+
+[node name="InfantryT1" instance=ExtResource("1_tubwb")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+frames = SubResource("SpriteFrames_nfy43")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_cagm2")

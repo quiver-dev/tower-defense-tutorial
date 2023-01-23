@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxqcw3ve5yu8b"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_yc04v"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_yc04v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 32.0
