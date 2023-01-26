@@ -10,4 +10,7 @@ script = ExtResource("1_yc04v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 radius = 32.0
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

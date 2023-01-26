@@ -1,5 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://beyqxjhy27kjd"]
+[gd_scene load_steps=45 format=3 uid="uid://beyqxjhy27kjd"]
 
+[ext_resource type="Script" path="res://maps/objective/objective.gd" id="1_d0q8n"]
 [ext_resource type="Texture2D" uid="uid://bgmom3gbpbayn" path="res://assets/tower/tower_die_00.png" id="1_jvuin"]
 [ext_resource type="Texture2D" uid="uid://t3o1oym1igu7" path="res://assets/tower/tower_die_01.png" id="2_mg2k5"]
 [ext_resource type="Texture2D" uid="uid://dak7y6qx53ws6" path="res://assets/tower/tower_die_02.png" id="3_omrmc"]
@@ -165,8 +166,8 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("40_kog8j")
 }],
-"loop": true,
-"name": &"death",
+"loop": false,
+"name": &"die",
 "speed": 12.0
 }, {
 "frames": [{
@@ -182,11 +183,14 @@ animations = [{
 size = Vector2(326, 256)
 
 [node name="Objective" type="Area2D"]
+script = ExtResource("1_d0q8n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_7kxxl")
-animation = &"death"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -3)
 shape = SubResource("RectangleShape2D_8kqft")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
