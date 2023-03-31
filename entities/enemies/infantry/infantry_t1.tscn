@@ -95,9 +95,9 @@ size = Vector2(51, 61)
 collision_mask = 7
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-frames = SubResource("SpriteFrames_nfy43")
-animation = &"move"
-playing = true
+sprite_frames = SubResource("SpriteFrames_nfy43")
+animation = &"die"
+autoplay = "move"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(2.5, -1.5)

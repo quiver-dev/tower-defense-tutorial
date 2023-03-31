@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://q5jnvb3o2y4q"]
+
+[ext_resource type="Texture2D" uid="uid://b6f1rp1xunuyd" path="res://assets/projectiles/bullet/idle_00.png" id="1_5ri27"]
+[ext_resource type="Script" path="res://entities/projectiles/projectile.gd" id="1_hhitr"]
+[ext_resource type="Texture2D" uid="uid://cmqjgr3ujwnl2" path="res://assets/projectiles/bullet/idle_01.png" id="2_jocjp"]
+[ext_resource type="Texture2D" uid="uid://jserlnk23hxf" path="res://assets/projectiles/bullet/idle_02.png" id="3_g8jt5"]
+[ext_resource type="Texture2D" uid="uid://bwhh01u712rmk" path="res://assets/projectiles/bullet/hit_vfx_00.png" id="5_ojp2u"]
+[ext_resource type="Texture2D" uid="uid://bppfk28w1j2ur" path="res://assets/projectiles/bullet/hit_vfx_01.png" id="6_amygh"]
+[ext_resource type="Texture2D" uid="uid://l2aqyecgdqkm" path="res://assets/projectiles/bullet/hit_vfx_02.png" id="7_quulh"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_irici"]
+frames = 3
+frame_0/texture = ExtResource("1_5ri27")
+frame_1/texture = ExtResource("2_jocjp")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_g8jt5")
+frame_2/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eces1"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h70lc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ojp2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_amygh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_quulh")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_hhitr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AnimatedTexture_irici")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27, 2.08165e-12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eces1")
+
+[node name="HitVfx" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(40, 2.08165e-12)
+sprite_frames = SubResource("SpriteFrames_h70lc")
+animation = &"hit"
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="HitVfx" to="." method="_on_hit_vfx_animation_finished"]
+[connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]

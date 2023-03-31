@@ -1,79 +1,80 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4bsgajdug3qc"]
+[gd_scene load_steps=22 format=3 uid="uid://b4bsgajdug3qc"]
 
 [ext_resource type="Texture2D" uid="uid://d06ljw7ag2tes" path="res://assets/tiles/field_tilesheet.png" id="1_vqxpx"]
-[ext_resource type="PackedScene" uid="uid://beyqxjhy27kjd" path="res://maps/objective/objective.tscn" id="3_l27ho"]
+[ext_resource type="PackedScene" uid="uid://cs8gukdleq2w8" path="res://maps/objective/objective.tscn" id="3_l27ho"]
 [ext_resource type="PackedScene" uid="uid://b0cf6ivwy8xat" path="res://maps/camera/camera2d.tscn" id="4_ugg6l"]
+[ext_resource type="PackedScene" uid="uid://babinwqpjwhmn" path="res://entities/towers/tower.tscn" id="5_adt4r"]
 [ext_resource type="PackedScene" uid="uid://co0rdnv4yehse" path="res://maps/spawner/spawner.tscn" id="5_jhdu7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g4rqo"]
 vertices = PackedVector2Array(29.5, 64, -64, 64, -64, -64, 36, 38, 64, -64, 64, 27)
-polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)]
-outlines = [PackedVector2Array(29.5, 64, -64, 64, -64, -64, 64, -64, 64, 27, 36, 38)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(29.5, 64, -64, 64, -64, -64, 64, -64, 64, 27, 36, 38)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1nuvq"]
 vertices = PackedVector2Array(30, -64, 29, 64, -64, 64, -64, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-64, -64, -64, 64, 29, 64, 30, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 64, 29, 64, 30, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_htayy"]
 vertices = PackedVector2Array(64, -30, 64, 64, -64, 64, 39, -34, -64, -64, 27, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)]
-outlines = [PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -30, 39, -34, 27, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -30, 39, -34, 27, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tew23"]
 vertices = PackedVector2Array(64, -64, 64, 29.5, -64, 29.5, -64, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-64, -64, -64, 29.5, 64, 29.5, 64, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 29.5, 64, 29.5, 64, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_megqg"]
 vertices = PackedVector2Array(-64, -29.5, 64, -29, 64, 64, -64, 64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-64, -29.5, 64, -29, 64, 64, -64, 64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -29.5, 64, -29, 64, 64, -64, 64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l02k7"]
 vertices = PackedVector2Array(-64, -64, 64, -64, 64, 64, -35.5, 34, -64, 32.5, -32.5, 64)
-polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 2, 5)]
-outlines = [PackedVector2Array(-64, -64, -64, 32.5, -35.5, 34, -32.5, 64, 64, 64, 64, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 0), PackedInt32Array(3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 32.5, -35.5, 34, -32.5, 64, 64, 64, 64, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ateg8"]
 vertices = PackedVector2Array(64, -64, 64, 64, -29, 64, -27.5, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-27.5, -64, -29, 64, 64, 64, 64, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-27.5, -64, -29, 64, 64, 64, 64, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_75acs"]
 vertices = PackedVector2Array(-21, -64, 64, -64, 64, 64, -64, 64, -40, -32, -64, -31.5)
-polygons = [PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 4)]
-outlines = [PackedVector2Array(-64, -31.5, -40, -32, -21, -64, 64, -64, 64, 64, -64, 64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -31.5, -40, -32, -21, -64, 64, -64, 64, 64, -64, 64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h302p"]
 vertices = PackedVector2Array(-26, 64, -13.5, 8.5, 26.5, -21.5, 64, -28.5, 64, 64)
-polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
-outlines = [PackedVector2Array(-26, 64, -13.5, 8.5, 26.5, -21.5, 64, -28.5, 64, 64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-26, 64, -13.5, 8.5, 26.5, -21.5, 64, -28.5, 64, 64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r05wx"]
 vertices = PackedVector2Array(64, -64, 64, 30, 27, 21.5, -16.5, -10.5, -28.5, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
-outlines = [PackedVector2Array(-28.5, -64, -16.5, -10.5, 27, 21.5, 64, 30, 64, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-28.5, -64, -16.5, -10.5, 27, 21.5, 64, 30, 64, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ke220"]
 vertices = PackedVector2Array(-64, 64, -64, -64, -30.5, -29, -31, 19, 5.5, 64, 3, 34, 23.5, -28, -3, -32.5, 5.5, -64, 64, -64, 64, 4, 41, 9.5, 64, 64)
-polygons = [PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(11, 10, 12, 4, 5)]
-outlines = [PackedVector2Array(-64, -64, -64, 64, 5.5, 64, 64, 64, 64, 4, 64, -64, 5.5, -64, -3, -32.5, 23.5, -28, 41, 9.5, 3, 34, -31, 19, -30.5, -29)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(11, 10, 12, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 64, 5.5, 64, 64, 64, 64, 4, 64, -64, 5.5, -64, -3, -32.5, 23.5, -28, 41, 9.5, 3, 34, -31, 19, -30.5, -29)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_x0ptx"]
 vertices = PackedVector2Array(-64, -30, 5, -6, 30.5, 64, -64, 64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-64, -30, 5, -6, 30.5, 64, -64, 64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -30, 5, -6, 30.5, 64, -64, 64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r2pis"]
 vertices = PackedVector2Array(32.5, -64, 12, -16, -19.5, 17.5, -64, 29, -64, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3, 4)]
-outlines = [PackedVector2Array(-64, -64, -64, 29, -19.5, 17.5, 12, -16, 32.5, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 29, -19.5, 17.5, 12, -16, 32.5, -64)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_amtsx"]
 vertices = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
-polygons = [PackedInt32Array(0, 1, 2, 3)]
-outlines = [PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)]
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3s5g"]
 texture = ExtResource("1_vqxpx")
@@ -178,5 +179,8 @@ position = Vector2(-315, -3)
 
 [node name="SpawnLocation3" parent="Spawner/SpawnContainer" index="2"]
 position = Vector2(-320, 454)
+
+[node name="Tower" parent="." instance=ExtResource("5_adt4r")]
+position = Vector2(630, 137)
 
 [editable path="Spawner"]

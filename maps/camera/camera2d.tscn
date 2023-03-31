@@ -3,5 +3,4 @@
 [ext_resource type="Script" path="res://maps/camera/camera2d.gd" id="1_msh2n"]
 
 [node name="Camera2D" type="Camera2D"]
-current = true
 script = ExtResource("1_msh2n")
