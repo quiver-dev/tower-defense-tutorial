@@ -185,7 +185,10 @@ sprite_frames = SubResource("SpriteFrames_3mujy")
 animation = &"idle"
 
 [node name="Muzzle" type="Marker2D" parent="Shooter/Gun"]
-position = Vector2(62, 0)
+position = Vector2(58, -21)
+
+[node name="Muzzle2" type="Marker2D" parent="Shooter/Gun"]
+position = Vector2(59, 20)
 
 [node name="MuzzleFlash" type="AnimatedSprite2D" parent="Shooter"]
 position = Vector2(68, 0)

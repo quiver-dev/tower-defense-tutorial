@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var fire_rate: float = 0.5
+@export var fire_rate: float = 0.1
 @export var rot_speed: float = 5.0
 @export_range(1, 6) var projectile_count: int = 1
 @export var projectile_type: PackedScene

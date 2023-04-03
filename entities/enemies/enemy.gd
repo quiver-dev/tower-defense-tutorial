@@ -31,7 +31,7 @@ func set_health(value: int) -> void:
 	health = max(0, value)
 	if health == 0:
 		$CollisionShape2D.set_deferred("disabled", true)
-		nav_agent.set_velocity(Vector2.ZERO)
+		speed = 0.0
 		$AnimatedSprite2D.play("die")
 
 func _on_animated_sprite_2d_animation_finished():
