@@ -1,0 +1,85 @@
+[gd_scene load_steps=20 format=3 uid="uid://ccknr414dqpl1"]
+
+[ext_resource type="PackedScene" uid="uid://q5jnvb3o2y4q" path="res://entities/projectiles/projectile.tscn" id="1_mkumr"]
+[ext_resource type="Texture2D" uid="uid://cjvm466hvc6kj" path="res://assets/projectiles/shell/idle_00.png" id="2_riln2"]
+[ext_resource type="Texture2D" uid="uid://4qki4xlcodri" path="res://assets/projectiles/shell/idle_01.png" id="3_nw6cq"]
+[ext_resource type="Texture2D" uid="uid://dy5rfk3fv6h78" path="res://assets/projectiles/shell/idle_02.png" id="4_qhw8t"]
+[ext_resource type="Texture2D" uid="uid://2sn6chkp83v" path="res://assets/projectiles/shell/idle_03.png" id="5_5rqdc"]
+[ext_resource type="Texture2D" uid="uid://kloqkmfllgw3" path="res://assets/projectiles/shell/hit_vfx_00.png" id="6_ytbuq"]
+[ext_resource type="Texture2D" uid="uid://bt3ukwn5h40bs" path="res://assets/projectiles/shell/hit_vfx_01.png" id="7_lk7d3"]
+[ext_resource type="Texture2D" uid="uid://c7kho8ektj2rx" path="res://assets/projectiles/shell/hit_vfx_02.png" id="8_sh3jt"]
+[ext_resource type="Texture2D" uid="uid://bkv24io4d7ybj" path="res://assets/projectiles/shell/hit_vfx_03.png" id="9_me00k"]
+[ext_resource type="Texture2D" uid="uid://c72yavt2vn54u" path="res://assets/projectiles/shell/hit_vfx_04.png" id="10_xdar3"]
+[ext_resource type="Texture2D" uid="uid://cyvtxwmru0fqy" path="res://assets/projectiles/shell/hit_vfx_05.png" id="11_juub8"]
+[ext_resource type="Texture2D" uid="uid://bbw6t765cfe7d" path="res://assets/projectiles/shell/hit_vfx_06.png" id="12_lcmcq"]
+[ext_resource type="Texture2D" uid="uid://c4j2koy3g15vw" path="res://assets/projectiles/shell/hit_vfx_07.png" id="13_q52cd"]
+[ext_resource type="Texture2D" uid="uid://caadsnerl3yd6" path="res://assets/projectiles/shell/hit_vfx_08.png" id="14_3qenh"]
+[ext_resource type="Texture2D" uid="uid://b4a0gt0lscdsy" path="res://assets/projectiles/shell/hit_vfx_09.png" id="15_nijb1"]
+[ext_resource type="Texture2D" uid="uid://bmsnyp0ewwn1" path="res://assets/projectiles/shell/hit_vfx_10.png" id="16_cse64"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_u7idp"]
+frames = 4
+frame_0/texture = ExtResource("2_riln2")
+frame_1/texture = ExtResource("3_nw6cq")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_qhw8t")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_5rqdc")
+frame_3/duration = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pa1xd"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4ol1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ytbuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lk7d3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sh3jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_me00k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xdar3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_juub8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lcmcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q52cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3qenh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nijb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cse64")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[node name="Shell" instance=ExtResource("1_mkumr")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AnimatedTexture_u7idp")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(25, 5.19431e-12)
+shape = SubResource("CapsuleShape2D_pa1xd")
+
+[node name="HitVfx" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_q4ol1")

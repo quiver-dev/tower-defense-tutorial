@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b4bsgajdug3qc"]
+[gd_scene load_steps=23 format=3 uid="uid://b4bsgajdug3qc"]
 
 [ext_resource type="Texture2D" uid="uid://d06ljw7ag2tes" path="res://assets/tiles/field_tilesheet.png" id="1_vqxpx"]
 [ext_resource type="PackedScene" uid="uid://cs8gukdleq2w8" path="res://maps/objective/objective.tscn" id="3_l27ho"]
 [ext_resource type="PackedScene" uid="uid://b0cf6ivwy8xat" path="res://maps/camera/camera2d.tscn" id="4_ugg6l"]
 [ext_resource type="PackedScene" uid="uid://babinwqpjwhmn" path="res://entities/towers/tower.tscn" id="5_adt4r"]
 [ext_resource type="PackedScene" uid="uid://co0rdnv4yehse" path="res://maps/spawner/spawner.tscn" id="5_jhdu7"]
+[ext_resource type="PackedScene" uid="uid://fwisk02yjc" path="res://entities/tanks/tank.tscn" id="6_5v4rx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g4rqo"]
 vertices = PackedVector2Array(29.5, 64, -64, 64, -64, -64, 36, 38, 64, -64, 64, 27)
@@ -182,5 +183,8 @@ position = Vector2(-320, 454)
 
 [node name="Tower" parent="." instance=ExtResource("5_adt4r")]
 position = Vector2(630, 137)
+
+[node name="Tank" parent="." instance=ExtResource("6_5v4rx")]
+position = Vector2(-211, -89)
 
 [editable path="Spawner"]
