@@ -20,8 +20,9 @@ func _physics_process(delta: float) -> void:
 	global_position += velocity * delta
 
 func _on_body_entered(body):
-	if body is Enemy:
-		(body as Enemy).health -= damage
+	if body is Enemy or body is Tower:
+		#(body as Enemy).health -= damage
+		body.health -= damage
 		_explode()
 		
 func _explode() -> void:

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Shooter
 
 @export var fire_rate: float = 0.1
 @export var rot_speed: float = 5.0
@@ -6,7 +7,7 @@ extends Node2D
 @export var projectile_type: PackedScene
 @export var projectile_spread: float = 0.2
 @export var projectile_speed: int = 1000
-@export var projectile_damage: int = 10
+@export var projectile_damage: int = 3
 
 var targets: Array[Node2D]
 var can_shoot := true
@@ -54,6 +55,13 @@ func shoot() -> void:
 		_instantiate_projectile(_muzzle.global_position)
 	_play_animations("shoot")
 	firerate_timer.start(fire_rate)
+
+	
+func die():
+	set_physics_process(false)
+	can_shoot = false
+	firerate_timer.stop()
+	gun.play("die")
 
 
 func _on_fire_rate_timer_timeout():

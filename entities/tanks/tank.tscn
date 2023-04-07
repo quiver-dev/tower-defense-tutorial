@@ -1,7 +1,8 @@
-[gd_scene load_steps=79 format=3 uid="uid://fwisk02yjc"]
+[gd_scene load_steps=80 format=3 uid="uid://fwisk02yjc"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_b1sfh"]
 [ext_resource type="Texture2D" uid="uid://2s4m5sfawyhj" path="res://assets/enemies/tank/tier1/base_die_00.png" id="2_gfewt"]
+[ext_resource type="Script" path="res://entities/tanks/tank.gd" id="2_nywma"]
 [ext_resource type="Texture2D" uid="uid://bnu87pocgiajy" path="res://assets/enemies/tank/tier1/base_die_01.png" id="3_v1biy"]
 [ext_resource type="Texture2D" uid="uid://vl2pcgxetw3r" path="res://assets/enemies/tank/tier1/base_die_02.png" id="4_8rw2s"]
 [ext_resource type="Texture2D" uid="uid://dupgn7g4syx0p" path="res://assets/enemies/tank/tier1/base_die_03.png" id="5_4pm1v"]
@@ -319,7 +320,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("64_h16ko")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 12.0
 }]
@@ -356,7 +357,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("72_ylnjg")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 12.0
 }]
@@ -367,7 +368,7 @@ radius = 500.0
 [node name="Tank" instance=ExtResource("1_b1sfh")]
 collision_layer = 32
 collision_mask = 39
-speed = 100
+script = ExtResource("2_nywma")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_o85js")
@@ -389,7 +390,6 @@ projectile_type = ExtResource("32_7a586")
 
 [node name="Gun" parent="Shooter" index="0"]
 sprite_frames = SubResource("SpriteFrames_a5og6")
-animation = &"shoot"
 
 [node name="Muzzle" parent="Shooter/Gun" index="0"]
 position = Vector2(59, 0)
