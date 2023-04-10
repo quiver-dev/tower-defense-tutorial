@@ -2,6 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var speed := 150
+@export var rot_speed: float = 10.0
 @export var health := 100:
 	set = set_health
 @export var objective_damage := 10
@@ -14,12 +15,19 @@ func _ready() -> void:
 	var objective: Node2D = $/root/Map/Objective
 	nav_agent.set_target_position(objective.global_position)
 	
+func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: float) -> float:
+	return lerp_angle(start_rot, target_rot, _speed * delta)
+	
 func _physics_process(delta: float) -> void:
 	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	var cur_agent_pos: Vector2 = global_position
 	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed
 	#nav_agent.set_velocity(new_velocity)
 	velocity = new_velocity
+	$AnimatedSprite2D.global_rotation = _calculate_rot($AnimatedSprite2D.global_rotation,
+			velocity.angle(), rot_speed, delta)
+	$CollisionShape2D.global_rotation = _calculate_rot($CollisionShape2D.global_rotation,
+			velocity.angle(), rot_speed, delta)
 	move_and_slide()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
