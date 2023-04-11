@@ -37,7 +37,7 @@ func _rotate_shooter(delta: float):
 		var target_rot: float = global_position.direction_to(target_pos).angle()
 		rotation = lerp_angle(rotation, target_rot, rot_speed * delta)
 	
-func should_shoot(delta: float) -> bool:
+func should_shoot() -> bool:
 	if can_shoot and lookahead.is_colliding():
 		return true
 	return false

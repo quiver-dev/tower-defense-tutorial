@@ -6,6 +6,12 @@ class_name Tower
 
 @onready var collision := $CollisionShape2D as CollisionShape2D
 @onready var shooter := $Shooter as Shooter
+
+func _physics_process(delta: float) -> void:
+	if shooter.targets:
+		shooter._rotate_shooter(delta)
+		if shooter.should_shoot():
+			shooter.shoot()
 	
 func set_health(value: int) -> void:
 	health = max(0, value)

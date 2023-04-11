@@ -183,6 +183,7 @@ position = Vector2(-320, 454)
 
 [node name="Tower" parent="." instance=ExtResource("5_adt4r")]
 position = Vector2(408, 243)
+health = null
 
 [node name="Tank" parent="." instance=ExtResource("6_5v4rx")]
 position = Vector2(-211, -89)

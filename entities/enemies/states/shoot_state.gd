@@ -15,5 +15,5 @@ func update(delta: float) -> void:
 			shooter._rotate_shooter(delta)
 		else:
 			state_machine.transition_to("Move")
-		if shooter.should_shoot(delta):
+		if shooter.should_shoot():
 			shooter.shoot()
