@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var objective_damage := 10
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+@onready var state_machine := $StateMachine as StateMachine
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
@@ -18,7 +19,7 @@ func _ready() -> void:
 func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: float) -> float:
 	return lerp_angle(start_rot, target_rot, _speed * delta)
 	
-func _physics_process(delta: float) -> void:
+func _move(delta: float) -> void:
 	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	var cur_agent_pos: Vector2 = global_position
 	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed
@@ -38,7 +39,13 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func set_health(value: int) -> void:
 	health = max(0, value)
 	if health == 0:
-		die()
+		state_machine.transition_to("Die")
+		
+func get_shooter() -> Shooter:
+	return null
+	
+func play_animation(anim_name: String) -> void:
+	$AnimatedSprite2D.play(anim_name)
 		
 func die() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)

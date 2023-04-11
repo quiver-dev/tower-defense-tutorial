@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxqcw3ve5yu8b"]
+[gd_scene load_steps=5 format=3 uid="uid://bxqcw3ve5yu8b"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_yc04v"]
+[ext_resource type="Script" path="res://entities/state_machine.gd" id="2_2begw"]
+[ext_resource type="Script" path="res://entities/enemies/states/move_state.gd" id="3_hi20q"]
+[ext_resource type="Script" path="res://entities/enemies/states/die_state.gd" id="4_ba0aw"]
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_yc04v")
@@ -12,6 +15,16 @@ script = ExtResource("1_yc04v")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 32.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_2begw")
+start_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("3_hi20q")
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource("4_ba0aw")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

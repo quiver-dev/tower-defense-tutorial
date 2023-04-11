@@ -30,15 +30,17 @@ func _play_animations(anim_name: String) -> void:
 	muzzle_flash.frame = 0
 	gun.play(anim_name)
 	muzzle_flash.play(anim_name)
-	
-func _physics_process(delta: float) -> void:
+
+func _rotate_shooter(delta: float):
 	if not targets.is_empty():
 		var target_pos: Vector2 = targets.front().global_position
 		var target_rot: float = global_position.direction_to(target_pos).angle()
 		rotation = lerp_angle(rotation, target_rot, rot_speed * delta)
-
-		if can_shoot and lookahead.is_colliding():
-			shoot()
+	
+func should_shoot(delta: float) -> bool:
+	if can_shoot and lookahead.is_colliding():
+		return true
+	return false
 			
 func _instantiate_projectile(_position: Vector2) -> void:
 	var projectile: Projectile = projectile_type.instantiate()

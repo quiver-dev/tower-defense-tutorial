@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://fwisk02yjc"]
+[gd_scene load_steps=82 format=3 uid="uid://fwisk02yjc"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_b1sfh"]
 [ext_resource type="Texture2D" uid="uid://2s4m5sfawyhj" path="res://assets/enemies/tank/tier1/base_die_00.png" id="2_gfewt"]
@@ -74,6 +74,8 @@
 [ext_resource type="Texture2D" uid="uid://oelojyk26404" path="res://assets/enemies/tank/tier1/gun_fx_05.png" id="70_uj4q5"]
 [ext_resource type="Texture2D" uid="uid://cx1shls4fn0wc" path="res://assets/enemies/tank/tier1/gun_fx_06.png" id="71_qy4ex"]
 [ext_resource type="Texture2D" uid="uid://by5giixwq2d7f" path="res://assets/enemies/tank/tier1/gun_fx_07.png" id="72_ylnjg"]
+[ext_resource type="Script" path="res://entities/enemies/states/shooter_move_state.gd" id="75_nald6"]
+[ext_resource type="Script" path="res://entities/enemies/states/shoot_state.gd" id="76_hnu8x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
 animations = [{
@@ -406,5 +408,11 @@ shape = SubResource("CircleShape2D_jyxif")
 
 [node name="LookAhead" parent="Shooter" index="3"]
 collision_mask = 18
+
+[node name="Move" parent="StateMachine" index="0"]
+script = ExtResource("75_nald6")
+
+[node name="Shoot" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("76_hnu8x")
 
 [editable path="Shooter"]
