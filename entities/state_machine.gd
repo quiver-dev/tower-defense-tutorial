@@ -1,12 +1,12 @@
 class_name StateMachine
 extends Node
 
-@export var start_state: NodePath
+@export var start_state: State
 var current_state: State = null
 
 func _ready() -> void:
 	await owner.ready
-	self.transition_to(start_state)
+	self.transition_to(start_state.name)
 
 func transition_to(new_state_name : String):
 	if has_node(new_state_name):

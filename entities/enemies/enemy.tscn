@@ -16,7 +16,7 @@ script = ExtResource("1_yc04v")
 avoidance_enabled = true
 radius = 32.0
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("start_state")]
 script = ExtResource("2_2begw")
 start_state = NodePath("Move")
 
