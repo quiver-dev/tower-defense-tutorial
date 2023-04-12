@@ -182,10 +182,13 @@ shape = SubResource("CircleShape2D_82hvp")
 
 [node name="LookAhead" type="RayCast2D" parent="."]
 target_position = Vector2(750, 2.08165e-12)
+collide_with_areas = true
 
 [node name="FireRateTimer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="Gun" to="." method="_on_gun_animation_finished"]
+[connection signal="area_entered" from="Detector" to="." method="_on_detector_area_entered"]
+[connection signal="area_exited" from="Detector" to="." method="_on_detector_area_exited"]
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

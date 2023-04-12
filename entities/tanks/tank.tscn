@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://fwisk02yjc"]
+[gd_scene load_steps=83 format=3 uid="uid://fwisk02yjc"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_b1sfh"]
 [ext_resource type="Texture2D" uid="uid://2s4m5sfawyhj" path="res://assets/enemies/tank/tier1/base_die_00.png" id="2_gfewt"]
@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://by5giixwq2d7f" path="res://assets/enemies/tank/tier1/gun_fx_07.png" id="72_ylnjg"]
 [ext_resource type="Script" path="res://entities/enemies/states/shooter_move_state.gd" id="75_nald6"]
 [ext_resource type="Script" path="res://entities/enemies/states/shoot_state.gd" id="76_hnu8x"]
+[ext_resource type="Script" path="res://entities/enemies/states/shoot_stationary_state.gd" id="77_dsh5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
 animations = [{
@@ -158,14 +159,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("26_d74pt")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("27_tptne")
 }, {
 "duration": 1.0,
@@ -195,7 +188,7 @@ animations = [{
 "texture": ExtResource("30_ocavs")
 }],
 "loop": true,
-"name": &"move_shoot",
+"name": &"shoot",
 "speed": 7.0
 }, {
 "frames": [{
@@ -203,7 +196,7 @@ animations = [{
 "texture": ExtResource("26_d74pt")
 }],
 "loop": false,
-"name": &"shoot",
+"name": &"shoot_stationary",
 "speed": 5.0
 }]
 
@@ -374,7 +367,7 @@ script = ExtResource("2_nywma")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_o85js")
-animation = &"idle"
+animation = &"shoot"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-11, 0)
@@ -389,6 +382,7 @@ position = Vector2(-6, 3)
 fire_rate = 3.0
 rot_speed = 4.0
 projectile_type = ExtResource("32_7a586")
+projectile_damage = 25
 
 [node name="Gun" parent="Shooter" index="0"]
 sprite_frames = SubResource("SpriteFrames_a5og6")
@@ -414,5 +408,8 @@ script = ExtResource("75_nald6")
 
 [node name="Shoot" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("76_hnu8x")
+
+[node name="ShootStationary" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("77_dsh5p")
 
 [editable path="Shooter"]

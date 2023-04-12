@@ -49,7 +49,7 @@ func play_animation(anim_name: String) -> void:
 		
 func die() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	speed = 0.0
+	speed = 0
 	$AnimatedSprite2D.play("die")
 
 func _on_animated_sprite_2d_animation_finished():

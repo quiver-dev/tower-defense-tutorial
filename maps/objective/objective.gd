@@ -1,3 +1,4 @@
+class_name Objective
 extends Area2D
 
 @export var health := 500:

@@ -18,12 +18,20 @@ var can_shoot := true
 @onready var firerate_timer := $FireRateTimer as Timer
 
 func _on_detector_body_entered(body: Node2D) -> void:
-	if not body in targets:
+	if body not in targets:
 		targets.append(body)
 
 func _on_detector_body_exited(body: Node2D) -> void:
 	if body in targets:
 		targets.erase(body)
+		
+func _on_detector_area_entered(area):
+	if area not in targets:
+		targets.append(area)
+
+func _on_detector_area_exited(area):
+	if area in targets:
+		targets.erase(area)
 		
 func _play_animations(anim_name: String) -> void:
 	gun.frame = 0
@@ -64,6 +72,12 @@ func die():
 	can_shoot = false
 	firerate_timer.stop()
 	gun.play("die")
+	
+func is_objective_in_range() -> bool:
+	for target in targets:
+		if target is Objective:
+			return true
+	return false
 
 
 func _on_fire_rate_timer_timeout():

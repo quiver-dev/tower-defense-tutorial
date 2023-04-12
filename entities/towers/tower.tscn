@@ -21,6 +21,12 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_xawuj")
 
 [node name="Shooter" parent="." instance=ExtResource("3_cw0b1")]
+fire_rate = 0.1
+rot_speed = 5.0
+projectile_count = 1
+projectile_spread = 0.2
+projectile_speed = 1000
+projectile_damage = 3
 
 [node name="Muzzle2" type="Marker2D" parent="Shooter/Gun" index="1"]
 position = Vector2(58, 17)

@@ -3,8 +3,8 @@ extends Node
 
 var state_machine : StateMachine
 
-func enter(state_machine: StateMachine, prev_state: State) -> void:
-	self.state_machine = state_machine
+func enter(sm: StateMachine, prev_state: State) -> void:
+	self.state_machine = sm
 
 func exit() -> void:
 	return
