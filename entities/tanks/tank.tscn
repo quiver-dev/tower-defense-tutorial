@@ -322,7 +322,10 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1c6c3"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
