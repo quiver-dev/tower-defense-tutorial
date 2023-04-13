@@ -1,11 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://b4bsgajdug3qc"]
+[gd_scene load_steps=24 format=3 uid="uid://b4bsgajdug3qc"]
 
 [ext_resource type="Texture2D" uid="uid://d06ljw7ag2tes" path="res://assets/tiles/field_tilesheet.png" id="1_vqxpx"]
 [ext_resource type="PackedScene" uid="uid://cs8gukdleq2w8" path="res://maps/objective/objective.tscn" id="3_l27ho"]
 [ext_resource type="PackedScene" uid="uid://b0cf6ivwy8xat" path="res://maps/camera/camera2d.tscn" id="4_ugg6l"]
-[ext_resource type="PackedScene" uid="uid://babinwqpjwhmn" path="res://entities/towers/tower.tscn" id="5_adt4r"]
 [ext_resource type="PackedScene" uid="uid://co0rdnv4yehse" path="res://maps/spawner/spawner.tscn" id="5_jhdu7"]
+[ext_resource type="PackedScene" uid="uid://cwdm5qe7uwong" path="res://entities/towers/gatling_tower.tscn" id="6_3xv3e"]
 [ext_resource type="PackedScene" uid="uid://fwisk02yjc" path="res://entities/tanks/tank.tscn" id="6_5v4rx"]
+[ext_resource type="PackedScene" uid="uid://cf3wjox4aqked" path="res://entities/towers/cannon_tower.tscn" id="7_wkv6n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g4rqo"]
 vertices = PackedVector2Array(29.5, 64, -64, 64, -64, -64, 36, 38, 64, -64, 64, 27)
@@ -181,11 +182,13 @@ position = Vector2(-315, -3)
 [node name="SpawnLocation3" parent="Spawner/SpawnContainer" index="2"]
 position = Vector2(-320, 454)
 
-[node name="Tower" parent="." instance=ExtResource("5_adt4r")]
-position = Vector2(408, 243)
-health = null
-
 [node name="Tank" parent="." instance=ExtResource("6_5v4rx")]
 position = Vector2(-211, -89)
+
+[node name="Tower" parent="." instance=ExtResource("6_3xv3e")]
+position = Vector2(505, 248)
+
+[node name="CannonTower" parent="." instance=ExtResource("7_wkv6n")]
+position = Vector2(251, 248)
 
 [editable path="Spawner"]
