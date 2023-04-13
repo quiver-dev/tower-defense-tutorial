@@ -71,6 +71,7 @@ func die():
 	set_physics_process(false)
 	can_shoot = false
 	firerate_timer.stop()
+	muzzle_flash.hide()
 	gun.play("die")
 	
 func is_objective_in_range() -> bool:

@@ -11,7 +11,6 @@ size = Vector2(119, 114)
 collision_layer = 2
 collision_mask = 33
 script = ExtResource("1_u2rls")
-health = null
 
 [node name="Foundation" type="Sprite2D" parent="."]
 texture = ExtResource("1_ufm6q")
@@ -21,17 +20,13 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_xawuj")
 
 [node name="Shooter" parent="." instance=ExtResource("3_cw0b1")]
-fire_rate = 0.1
-rot_speed = 5.0
-projectile_count = 1
-projectile_spread = 0.2
-projectile_speed = 1000
-projectile_damage = 3
 
 [node name="Muzzle2" type="Marker2D" parent="Shooter/Gun" index="1"]
 position = Vector2(58, 17)
 
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 autoplay = "idle"
+
+[connection signal="animation_finished" from="Shooter/Gun" to="." method="_on_gun_animation_finished"]
 
 [editable path="Shooter"]

@@ -16,5 +16,11 @@ func _physics_process(delta: float) -> void:
 func set_health(value: int) -> void:
 	health = max(0, value)
 	if health == 0:
+		set_physics_process(false)
 		collision.set_deferred("disabled", true)
 		shooter.die()
+
+
+func _on_gun_animation_finished():
+	if shooter.gun.animation == "die":
+		queue_free()
