@@ -15,6 +15,7 @@ func _ready() -> void:
 	
 	var objective: Node2D = $/root/Map/Objective
 	nav_agent.set_target_position(objective.global_position)
+	nav_agent.max_speed = speed
 	
 func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: float) -> float:
 	return lerp_angle(start_rot, target_rot, _speed * delta)
@@ -22,19 +23,20 @@ func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: f
 func _move(delta: float) -> void:
 	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	var cur_agent_pos: Vector2 = global_position
-	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed
-	#nav_agent.set_velocity(new_velocity)
-	velocity = new_velocity
+	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed	
+	if not nav_agent.avoidance_enabled:
+		velocity = new_velocity
+		move_and_slide()
+	else:
+		nav_agent.set_velocity(new_velocity)
 	$AnimatedSprite2D.global_rotation = _calculate_rot($AnimatedSprite2D.global_rotation,
 			velocity.angle(), rot_speed, delta)
 	$CollisionShape2D.global_rotation = _calculate_rot($CollisionShape2D.global_rotation,
 			velocity.angle(), rot_speed, delta)
-	move_and_slide()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	pass
-	#velocity = safe_velocity
-	#move_and_slide()
+	velocity = safe_velocity
+	move_and_slide()
 	
 func set_health(value: int) -> void:
 	health = max(0, value)

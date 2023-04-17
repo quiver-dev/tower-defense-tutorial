@@ -102,3 +102,7 @@ autoplay = "move"
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_cagm2")
+
+[node name="NavigationAgent2D" parent="." index="2"]
+avoidance_enabled = true
+radius = 24.0

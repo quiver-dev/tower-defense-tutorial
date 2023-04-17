@@ -7,6 +7,15 @@ extends Node2D
 @onready var wave_timer := $WaveTimer as Timer
 @onready var spawn_timer := $SpawnTimer as Timer
 @onready var spawn_container := $SpawnContainer as Node2D
+@onready var spawn_probabilities := {
+	"infantry": 80,
+	"tank": 20,
+}
+
+var enemy_scenes := {
+	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
+	"tank": preload("res://entities/tanks/tank.tscn"),
+}
 
 var spawn_locations := []
 var current_wave = 0
@@ -26,8 +35,8 @@ func _end_wave():
 	if current_wave < wave_count:
 		$WaveTimer.start()
 	
-func _spawn_new_enemy(enemy_path: String):
-	var enemy: Enemy = load(enemy_path).instantiate()
+func _spawn_new_enemy(enemy_name: String):
+	var enemy: Enemy = enemy_scenes[enemy_name].instantiate()
 	get_parent().add_child(enemy)
 	var spawn_marker = spawn_locations.pick_random()
 	enemy.position = spawn_marker.position
@@ -38,8 +47,22 @@ func _on_wave_timer_timeout() -> void:
 		
 func _on_spawn_timer_timeout() -> void:
 	if current_enemy_count < enemies_per_wave_count:
-		_spawn_new_enemy("res://entities/enemies/infantry/infantry_t1.tscn")
+		_spawn_new_enemy(_pick_enemy())
 		var spawn_delay := randf_range(spawn_rate / 2, spawn_rate)
 		spawn_timer.start(spawn_delay)
 	else:
 		_end_wave()
+		
+func _pick_enemy() -> String:
+	var tot_probability: int = 0
+	for key in spawn_probabilities.keys():
+		tot_probability += spawn_probabilities[key]
+	var rand_number = randi_range(0, tot_probability - 1)
+	var enemy_name: String
+	for key in spawn_probabilities.keys():
+		if rand_number < spawn_probabilities[key]:
+			enemy_name = key
+			break
+		rand_number -= spawn_probabilities[key]
+	return enemy_name
+	

@@ -379,6 +379,8 @@ shape = SubResource("CircleShape2D_7yogj")
 [node name="NavigationAgent2D" parent="." index="2"]
 path_desired_distance = 100.0
 target_desired_distance = 100.0
+avoidance_enabled = true
+radius = 69.0
 
 [node name="Shooter" parent="." index="3" instance=ExtResource("31_a8icw")]
 position = Vector2(-6, 3)
