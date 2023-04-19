@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://carh6bbm1af4b"]
+[gd_scene load_steps=14 format=3 uid="uid://carh6bbm1af4b"]
 
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_1i8l6"]
 [ext_resource type="Texture2D" uid="uid://ix8s1c31gft5" path="res://assets/ui/heads_up/headsup_panel.png" id="1_gn7ca"]
 [ext_resource type="Texture2D" uid="uid://b84ro4mvacxb5" path="res://assets/ui/heads_up/tower_icon.png" id="2_u6cu1"]
 [ext_resource type="Texture2D" uid="uid://c61neo8s8gdpu" path="res://assets/ui/heads_up/lifebar_window.png" id="3_ukyhd"]
@@ -26,6 +27,7 @@ modulate_color = Color(1, 1, 1, 0.627451)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nltwi"]
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_1i8l6")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -58,6 +60,7 @@ layout_mode = 2
 texture = ExtResource("2_u6cu1")
 
 [node name="HealthBar" type="TextureProgressBar" parent="Control/Panel/Rows/Health"]
+unique_name_in_owner = true
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("3_ukyhd")
@@ -71,7 +74,8 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("5_af6wl")
 
-[node name="Label" type="Label" parent="Control/Panel/Rows/Money"]
+[node name="MoneyLabel" type="Label" parent="Control/Panel/Rows/Money"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
@@ -81,6 +85,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="WaveLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 11.0
 offset_top = 8.0
@@ -94,6 +99,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NextWave" type="Panel" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 788.0
 offset_top = 10.0
@@ -103,9 +109,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_3fwpv")
 
 [node name="Rows" type="HBoxContainer" parent="Control/NextWave"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -24.5
+offset_right = 157.5
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -118,10 +130,14 @@ text = "Next wave in:"
 horizontal_alignment = 1
 
 [node name="Countdown" type="Label" parent="Control/NextWave/Rows"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nltwi")
 text = "5"
 
 [node name="Timer" type="Timer" parent="Control/NextWave"]
+unique_name_in_owner = true
 one_shot = true
+
+[connection signal="timeout" from="Control/NextWave/Timer" to="." method="_on_timer_timeout"]

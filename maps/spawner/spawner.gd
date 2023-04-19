@@ -1,4 +1,8 @@
+class_name Spawner
 extends Node2D
+
+signal countdown_started(seconds: float)
+signal wave_started(current_wave: int)
 
 @export_range(0.5, 5.0, 0.5) var spawn_rate: float = 2.0
 @export var wave_count: int = 3
@@ -25,15 +29,19 @@ func _ready() -> void:
 	for marker in spawn_container.get_children():
 		spawn_locations.append(marker)
 	wave_timer.start()
+	await owner.ready
+	countdown_started.emit(wave_timer.time_left)
 	
 func _start_wave():
 	current_wave += 1
 	spawn_timer.start()
 	current_enemy_count = 0
+	wave_started.emit(current_wave)
 	
 func _end_wave():
 	if current_wave < wave_count:
-		$WaveTimer.start()
+		wave_timer.start()
+		countdown_started.emit(wave_timer.time_left)
 	
 func _spawn_new_enemy(enemy_name: String):
 	var enemy: Enemy = enemy_scenes[enemy_name].instantiate()
