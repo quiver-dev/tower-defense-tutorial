@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvn8uh11r13wr"]
+
+[ext_resource type="Texture2D" uid="uid://dvw3hr7iyr2c6" path="res://assets/towers/single/tier1/base_idle_00.png" id="1_ewe1w"]
+[ext_resource type="Script" path="res://entities/towers/tower_slot.gd" id="1_y88k1"]
+[ext_resource type="PackedScene" uid="uid://bhm0jmto8qnw5" path="res://ui/tower_popup.tscn" id="3_d18hb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f41g"]
+size = Vector2(102, 101)
+
+[node name="TowerSlot" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_y88k1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ewe1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_3f41g")
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="TowerPopup" parent="UI" instance=ExtResource("3_d18hb")]
+visible = false
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="tower_requested" from="UI/TowerPopup" to="." method="_on_tower_popup_tower_requested"]

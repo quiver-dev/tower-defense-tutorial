@@ -1,6 +1,8 @@
 extends StaticBody2D
 class_name Tower
 
+signal tower_destroyed
+
 @export_range(1, 1000) var health: int = 100:
 	set = set_health
 
@@ -19,6 +21,7 @@ func set_health(value: int) -> void:
 		set_physics_process(false)
 		collision.set_deferred("disabled", true)
 		shooter.die()
+		tower_destroyed.emit()
 
 
 func _on_gun_animation_finished():
