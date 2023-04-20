@@ -11,11 +11,15 @@ class_name Shooter
 
 var targets: Array[Node2D]
 var can_shoot := true
+var map: Node
 
 @onready var gun := $Gun as AnimatedSprite2D
 @onready var muzzle_flash := $MuzzleFlash as AnimatedSprite2D
 @onready var lookahead := $LookAhead as RayCast2D
 @onready var firerate_timer := $FireRateTimer as Timer
+
+func _ready():
+	map = find_parent("Map")
 
 func _on_detector_body_entered(body: Node2D) -> void:
 	if body not in targets:
@@ -52,12 +56,12 @@ func should_shoot() -> bool:
 			
 func _instantiate_projectile(_position: Vector2) -> void:
 	var projectile: Projectile = projectile_type.instantiate()
-	projectile.start(_position, rotation, projectile_speed, projectile_damage)
-	projectile.collision_mask = $Detector.collision_mask
-	if owner.get_parent():
-		owner.add_sibling(projectile)
+	if map:
+		map.add_child(projectile)
 	else:
 		owner.add_child(projectile)
+	projectile.start(_position, rotation, projectile_speed, projectile_damage)
+	projectile.collision_mask = $Detector.collision_mask
 
 func shoot() -> void:
 	can_shoot = false
