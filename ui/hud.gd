@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var countdown_label = %Countdown as Label
 @onready var next_wave_timer = %Timer as Timer
 
-func initialize(max_health) -> void:
+func initialize(max_health: int) -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health_bar.max_value
 
@@ -21,9 +21,11 @@ func _on_spawner_countdown_started(seconds: float) -> void:
 	
 func _on_spawner_wave_started(current_wave: int) -> void:
 	wave_label.text = "Wave: %d" % current_wave
+	
+func _on_money_changed(money: int) -> void:
+	money_label.text = str(money)
 
 func _process(_delta: float) -> void:
-	#money_label.text = str(Global.money)
 	if not next_wave_timer.is_stopped():
 		countdown_label.text = str(ceil(next_wave_timer.time_left))
 
