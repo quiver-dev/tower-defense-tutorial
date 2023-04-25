@@ -1,0 +1,421 @@
+[gd_scene load_steps=83 format=3 uid="uid://cv0ejciwmt5wv"]
+
+[ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_ipxtn"]
+[ext_resource type="Script" path="res://entities/enemies/tanks/tank.gd" id="2_wp1vt"]
+[ext_resource type="Texture2D" uid="uid://2s4m5sfawyhj" path="res://assets/enemies/tank/tier1/base_die_00.png" id="3_lb115"]
+[ext_resource type="Texture2D" uid="uid://bnu87pocgiajy" path="res://assets/enemies/tank/tier1/base_die_01.png" id="4_nq351"]
+[ext_resource type="Texture2D" uid="uid://vl2pcgxetw3r" path="res://assets/enemies/tank/tier1/base_die_02.png" id="5_ve1u5"]
+[ext_resource type="Texture2D" uid="uid://dupgn7g4syx0p" path="res://assets/enemies/tank/tier1/base_die_03.png" id="6_kgn8w"]
+[ext_resource type="Texture2D" uid="uid://b4746xm4nuobq" path="res://assets/enemies/tank/tier1/base_die_04.png" id="7_duenf"]
+[ext_resource type="Texture2D" uid="uid://dvdefa2vdb1li" path="res://assets/enemies/tank/tier1/base_die_05.png" id="8_hussw"]
+[ext_resource type="Texture2D" uid="uid://ccndeqabx2d1k" path="res://assets/enemies/tank/tier1/base_die_06.png" id="9_olnmd"]
+[ext_resource type="Texture2D" uid="uid://dmdg7vpw0b5j0" path="res://assets/enemies/tank/tier1/base_die_07.png" id="10_r21md"]
+[ext_resource type="Texture2D" uid="uid://d7besnovvfma" path="res://assets/enemies/tank/tier1/base_die_08.png" id="11_xg8bv"]
+[ext_resource type="Texture2D" uid="uid://be1e5wpgdtv2d" path="res://assets/enemies/tank/tier1/base_die_09.png" id="12_17xqk"]
+[ext_resource type="Texture2D" uid="uid://bds2ls7s4ta3k" path="res://assets/enemies/tank/tier1/base_die_10.png" id="13_ukrvr"]
+[ext_resource type="Texture2D" uid="uid://did0jx8u6osl2" path="res://assets/enemies/tank/tier1/base_die_11.png" id="14_ijjs3"]
+[ext_resource type="Texture2D" uid="uid://c36syqhhqxlhy" path="res://assets/enemies/tank/tier1/base_die_12.png" id="15_av0r4"]
+[ext_resource type="Texture2D" uid="uid://b7x5tkte2tmia" path="res://assets/enemies/tank/tier1/base_die_13.png" id="16_23yxe"]
+[ext_resource type="Texture2D" uid="uid://d02540q104s3" path="res://assets/enemies/tank/tier1/base_die_14.png" id="17_n7lja"]
+[ext_resource type="Texture2D" uid="uid://crm184lvpdq25" path="res://assets/enemies/tank/tier1/base_die_15.png" id="18_no3k1"]
+[ext_resource type="Texture2D" uid="uid://b4mnsj88p3li0" path="res://assets/enemies/tank/tier1/base_die_16.png" id="19_4lyrx"]
+[ext_resource type="Texture2D" uid="uid://b51p3rv7mvedv" path="res://assets/enemies/tank/tier1/base_die_17.png" id="20_013em"]
+[ext_resource type="Texture2D" uid="uid://cews6j1oqymte" path="res://assets/enemies/tank/tier1/base_die_18.png" id="21_y60t4"]
+[ext_resource type="Texture2D" uid="uid://i658th72761n" path="res://assets/enemies/tank/tier1/base_die_19.png" id="22_y108v"]
+[ext_resource type="Texture2D" uid="uid://cc0mfavwrh2tr" path="res://assets/enemies/tank/tier1/base_die_20.png" id="23_0srul"]
+[ext_resource type="Texture2D" uid="uid://c278vjghv1unj" path="res://assets/enemies/tank/tier1/base_die_21.png" id="24_oh7gh"]
+[ext_resource type="Texture2D" uid="uid://kpsg32dvkt80" path="res://assets/enemies/tank/tier1/base_die_22.png" id="25_2x46p"]
+[ext_resource type="Texture2D" uid="uid://chw4p1bjhjqge" path="res://assets/enemies/tank/tier1/base_die_23.png" id="26_6nb10"]
+[ext_resource type="Texture2D" uid="uid://daey4f87rq88i" path="res://assets/enemies/tank/tier1/base_move_00.png" id="27_6wxjm"]
+[ext_resource type="Texture2D" uid="uid://tse5wefpduid" path="res://assets/enemies/tank/tier1/base_move_01.png" id="28_mrpjl"]
+[ext_resource type="Texture2D" uid="uid://dyfror8rxqi1m" path="res://assets/enemies/tank/tier1/base_move_02.png" id="29_702iy"]
+[ext_resource type="Texture2D" uid="uid://d1si8nioo8hjm" path="res://assets/enemies/tank/tier1/base_move_03.png" id="30_0f36u"]
+[ext_resource type="Texture2D" uid="uid://b4aarfwd8rwik" path="res://assets/enemies/tank/tier1/base_idle_00.png" id="31_k3h0y"]
+[ext_resource type="PackedScene" uid="uid://bswr4r1sn2dki" path="res://entities/shooter.tscn" id="31_owshd"]
+[ext_resource type="PackedScene" uid="uid://ccknr414dqpl1" path="res://entities/projectiles/shell/shell.tscn" id="32_ic5om"]
+[ext_resource type="Texture2D" uid="uid://jnji2vya5jyg" path="res://assets/enemies/tank/tier1/gun_die_00.png" id="33_bro16"]
+[ext_resource type="Texture2D" uid="uid://it5f7g3dl62l" path="res://assets/enemies/tank/tier1/gun_die_01.png" id="34_uywfl"]
+[ext_resource type="Texture2D" uid="uid://f50ijwhdd72h" path="res://assets/enemies/tank/tier1/gun_die_02.png" id="35_iyn7f"]
+[ext_resource type="Texture2D" uid="uid://tntnkra1i7gh" path="res://assets/enemies/tank/tier1/gun_die_03.png" id="36_xx4xo"]
+[ext_resource type="Texture2D" uid="uid://bea5xmhh2v6v6" path="res://assets/enemies/tank/tier1/gun_die_04.png" id="37_y2l3i"]
+[ext_resource type="Texture2D" uid="uid://xu10d3bxo3se" path="res://assets/enemies/tank/tier1/gun_die_05.png" id="38_17afb"]
+[ext_resource type="Texture2D" uid="uid://bqppp1q3qkhr8" path="res://assets/enemies/tank/tier1/gun_die_06.png" id="39_mx7x6"]
+[ext_resource type="Texture2D" uid="uid://dbha4f3oennwj" path="res://assets/enemies/tank/tier1/gun_die_07.png" id="40_0sx8s"]
+[ext_resource type="Texture2D" uid="uid://c3pm832oyuf1l" path="res://assets/enemies/tank/tier1/gun_die_08.png" id="41_qerd7"]
+[ext_resource type="Texture2D" uid="uid://c8n3twgwod4d8" path="res://assets/enemies/tank/tier1/gun_die_09.png" id="42_0oq6j"]
+[ext_resource type="Texture2D" uid="uid://mswvnsc1kpcs" path="res://assets/enemies/tank/tier1/gun_die_10.png" id="43_2nylt"]
+[ext_resource type="Texture2D" uid="uid://b8h2l0ulujb71" path="res://assets/enemies/tank/tier1/gun_die_11.png" id="44_h6wxb"]
+[ext_resource type="Texture2D" uid="uid://cq2d8c6jxfkuk" path="res://assets/enemies/tank/tier1/gun_die_12.png" id="45_fhm41"]
+[ext_resource type="Texture2D" uid="uid://tjaauucxv1gb" path="res://assets/enemies/tank/tier1/gun_die_13.png" id="46_ek784"]
+[ext_resource type="Texture2D" uid="uid://dg7x0kby8d0ga" path="res://assets/enemies/tank/tier1/gun_die_14.png" id="47_76q10"]
+[ext_resource type="Texture2D" uid="uid://0fbgad8o3170" path="res://assets/enemies/tank/tier1/gun_die_15.png" id="48_n7fer"]
+[ext_resource type="Texture2D" uid="uid://chv4d708dxmv3" path="res://assets/enemies/tank/tier1/gun_die_16.png" id="49_dfvyc"]
+[ext_resource type="Texture2D" uid="uid://d0v82n835u8wj" path="res://assets/enemies/tank/tier1/gun_die_17.png" id="50_4udxf"]
+[ext_resource type="Texture2D" uid="uid://dliscxdingcn8" path="res://assets/enemies/tank/tier1/gun_die_18.png" id="51_7legf"]
+[ext_resource type="Texture2D" uid="uid://ba7h2rjl6pfrc" path="res://assets/enemies/tank/tier1/gun_die_19.png" id="52_pjc7t"]
+[ext_resource type="Texture2D" uid="uid://cm0g2kwa20kgm" path="res://assets/enemies/tank/tier1/gun_die_20.png" id="53_7sgu8"]
+[ext_resource type="Texture2D" uid="uid://bff0u7h6icnms" path="res://assets/enemies/tank/tier1/gun_die_21.png" id="54_cn44g"]
+[ext_resource type="Texture2D" uid="uid://cfv5e8sopyspr" path="res://assets/enemies/tank/tier1/gun_die_22.png" id="55_g2uec"]
+[ext_resource type="Texture2D" uid="uid://cu8owj8yiy3eg" path="res://assets/enemies/tank/tier1/gun_die_23.png" id="56_x1h5b"]
+[ext_resource type="Texture2D" uid="uid://cj7ym1u8ch23y" path="res://assets/enemies/tank/tier1/gun_idle_00.png" id="57_0l1v8"]
+[ext_resource type="Texture2D" uid="uid://bartdmyxy5r5k" path="res://assets/enemies/tank/tier1/gun_shoot_00.png" id="58_7ta7j"]
+[ext_resource type="Texture2D" uid="uid://cdcqpeqb62tav" path="res://assets/enemies/tank/tier1/gun_shoot_01.png" id="59_gnqmi"]
+[ext_resource type="Texture2D" uid="uid://bpasta5c65nqc" path="res://assets/enemies/tank/tier1/gun_shoot_02.png" id="60_gw44p"]
+[ext_resource type="Texture2D" uid="uid://bh7f5qjtqg1or" path="res://assets/enemies/tank/tier1/gun_shoot_03.png" id="61_xwevq"]
+[ext_resource type="Texture2D" uid="uid://cmujvrujl8fmx" path="res://assets/enemies/tank/tier1/gun_shoot_04.png" id="62_ocbrm"]
+[ext_resource type="Texture2D" uid="uid://6ujg8b2h0xqu" path="res://assets/enemies/tank/tier1/gun_shoot_05.png" id="63_ywk3m"]
+[ext_resource type="Texture2D" uid="uid://b67xgnosgu660" path="res://assets/enemies/tank/tier1/gun_shoot_06.png" id="64_kfchj"]
+[ext_resource type="Texture2D" uid="uid://ln24014k331" path="res://assets/enemies/tank/tier1/gun_shoot_07.png" id="65_a7oq6"]
+[ext_resource type="Texture2D" uid="uid://bue8ri58shuy2" path="res://assets/enemies/tank/tier1/gun_fx_00.png" id="66_2q6yq"]
+[ext_resource type="Texture2D" uid="uid://03nhgon4vkmk" path="res://assets/enemies/tank/tier1/gun_fx_01.png" id="67_4vs7d"]
+[ext_resource type="Texture2D" uid="uid://bq3y5i600q24i" path="res://assets/enemies/tank/tier1/gun_fx_02.png" id="68_nyq78"]
+[ext_resource type="Texture2D" uid="uid://03ehyqact0u8" path="res://assets/enemies/tank/tier1/gun_fx_03.png" id="69_s2sa3"]
+[ext_resource type="Texture2D" uid="uid://c4cj4ue4i86q0" path="res://assets/enemies/tank/tier1/gun_fx_04.png" id="70_8pspq"]
+[ext_resource type="Texture2D" uid="uid://oelojyk26404" path="res://assets/enemies/tank/tier1/gun_fx_05.png" id="71_h1clp"]
+[ext_resource type="Texture2D" uid="uid://cx1shls4fn0wc" path="res://assets/enemies/tank/tier1/gun_fx_06.png" id="72_c55ds"]
+[ext_resource type="Texture2D" uid="uid://by5giixwq2d7f" path="res://assets/enemies/tank/tier1/gun_fx_07.png" id="73_mobkn"]
+[ext_resource type="Script" path="res://entities/enemies/states/shooter_move_state.gd" id="74_sjcb8"]
+[ext_resource type="Script" path="res://entities/enemies/states/shoot_state.gd" id="75_2lmno"]
+[ext_resource type="Script" path="res://entities/enemies/states/shoot_stationary_state.gd" id="76_ka8fe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lb115")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nq351")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ve1u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kgn8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_duenf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hussw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_olnmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r21md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xg8bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_17xqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ukrvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ijjs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_av0r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_23yxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_n7lja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_no3k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4lyrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_013em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y60t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_y108v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0srul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_oh7gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2x46p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6nb10")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_6wxjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_mrpjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_702iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0f36u")
+}],
+"loop": true,
+"name": &"move",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_6wxjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_mrpjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_702iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0f36u")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_k3h0y")
+}],
+"loop": false,
+"name": &"shoot_stationary",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yogj"]
+radius = 60.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5og6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_bro16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_uywfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_iyn7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xx4xo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_y2l3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_17afb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_mx7x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_0sx8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_qerd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_0oq6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_2nylt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_h6wxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_fhm41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ek784")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_76q10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_n7fer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_dfvyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_4udxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_7legf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_pjc7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_7sgu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_cn44g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_g2uec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_x1h5b")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_0l1v8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_7ta7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_gnqmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_gw44p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_xwevq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_ocbrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ywk3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_kfchj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_a7oq6")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c6c3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("66_2q6yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_4vs7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_nyq78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_s2sa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_8pspq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_h1clp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_c55ds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_mobkn")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyxif"]
+radius = 500.0
+
+[node name="Tank" instance=ExtResource("1_ipxtn")]
+collision_layer = 32
+collision_mask = 39
+script = ExtResource("2_wp1vt")
+kill_reward = 200
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_o85js")
+animation = &"shoot_stationary"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-11, 0)
+shape = SubResource("CircleShape2D_7yogj")
+
+[node name="NavigationAgent2D" parent="." index="2"]
+path_desired_distance = 100.0
+target_desired_distance = 100.0
+avoidance_enabled = true
+radius = 69.0
+
+[node name="Shooter" parent="." index="3" instance=ExtResource("31_owshd")]
+position = Vector2(-6, 3)
+fire_rate = 3.0
+rot_speed = 4.0
+projectile_type = ExtResource("32_ic5om")
+projectile_damage = 25
+
+[node name="Gun" parent="Shooter" index="0"]
+sprite_frames = SubResource("SpriteFrames_a5og6")
+
+[node name="Muzzle" parent="Shooter/Gun" index="0"]
+position = Vector2(59, 0)
+
+[node name="MuzzleFlash" parent="Shooter" index="1"]
+sprite_frames = SubResource("SpriteFrames_1c6c3")
+autoplay = "idle"
+
+[node name="Detector" parent="Shooter" index="2"]
+collision_mask = 18
+
+[node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
+shape = SubResource("CircleShape2D_jyxif")
+
+[node name="LookAhead" parent="Shooter" index="3"]
+collision_mask = 18
+
+[node name="Move" parent="StateMachine" index="0"]
+script = ExtResource("74_sjcb8")
+
+[node name="Shoot" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("75_2lmno")
+
+[node name="ShootStationary" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("76_ka8fe")
+
+[editable path="Shooter"]
