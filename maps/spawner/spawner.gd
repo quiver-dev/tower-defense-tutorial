@@ -3,6 +3,7 @@ extends Node2D
 
 signal countdown_started(seconds: float)
 signal wave_started(current_wave: int)
+signal enemy_spawned(enemy: Enemy)
 
 @export_range(0.5, 5.0, 0.5) var spawn_rate: float = 2.0
 @export var wave_count: int = 3
@@ -18,7 +19,7 @@ signal wave_started(current_wave: int)
 
 var enemy_scenes := {
 	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
-	"tank": preload("res://entities/tanks/tank.tscn"),
+	"tank": preload("res://entities/enemies/tanks/tank.tscn"),
 }
 
 var spawn_locations := []
@@ -49,6 +50,7 @@ func _spawn_new_enemy(enemy_name: String):
 	var spawn_marker = spawn_locations.pick_random()
 	enemy.position = spawn_marker.position
 	current_enemy_count += 1
+	enemy_spawned.emit(enemy)
 
 func _on_wave_timer_timeout() -> void:
 	_start_wave()

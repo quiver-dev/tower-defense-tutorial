@@ -1,11 +1,14 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal enemy_died(enemy: Enemy)
+
 @export var speed := 150
 @export var rot_speed: float = 10.0
 @export var health := 100:
 	set = set_health
 @export var objective_damage := 10
+@export var kill_reward := 100
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var state_machine := $StateMachine as StateMachine
@@ -53,6 +56,7 @@ func die() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	speed = 0
 	$AnimatedSprite2D.play("die")
+	enemy_died.emit(self)
 
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "die":

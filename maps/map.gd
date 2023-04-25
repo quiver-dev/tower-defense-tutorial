@@ -24,3 +24,10 @@ func _ready():
 	objective.health_changed.connect(hud._on_objective_health_changed)
 	spawner.countdown_started.connect(hud._on_spawner_countdown_started)
 	spawner.wave_started.connect(hud._on_spawner_wave_started)
+	spawner.enemy_spawned.connect(_on_enemy_spawned)
+	
+func _on_enemy_spawned(enemy: Enemy):
+	enemy.enemy_died.connect(_on_enemy_died)
+	
+func _on_enemy_died(enemy: Enemy):
+	money += enemy.kill_reward
