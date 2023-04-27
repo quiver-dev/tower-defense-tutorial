@@ -3,7 +3,6 @@ class_name Shooter
 
 @export var fire_rate: float = 0.1
 @export var rot_speed: float = 5.0
-@export_range(1, 6) var projectile_count: int = 1
 @export var projectile_type: PackedScene
 @export var projectile_spread: float = 0.2
 @export var projectile_speed: int = 1000
@@ -13,10 +12,10 @@ var targets: Array[Node2D]
 var can_shoot := true
 var map: Node
 
-@onready var gun := $Gun as AnimatedSprite2D
-@onready var muzzle_flash := $MuzzleFlash as AnimatedSprite2D
-@onready var lookahead := $LookAhead as RayCast2D
-@onready var firerate_timer := $FireRateTimer as Timer
+@onready var gun = $Gun as AnimatedSprite2D
+@onready var muzzle_flash = $MuzzleFlash as AnimatedSprite2D
+@onready var lookahead = $LookAhead as RayCast2D
+@onready var firerate_timer = $FireRateTimer as Timer
 
 func _ready():
 	map = find_parent("Map")

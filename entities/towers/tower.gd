@@ -6,8 +6,8 @@ signal tower_destroyed
 @export_range(1, 1000) var health: int = 100:
 	set = set_health
 
-@onready var collision := $CollisionShape2D as CollisionShape2D
-@onready var shooter := $Shooter as Shooter
+@onready var collision = $CollisionShape2D as CollisionShape2D
+@onready var shooter = $Shooter as Shooter
 
 func _physics_process(delta: float) -> void:
 	if shooter.targets:

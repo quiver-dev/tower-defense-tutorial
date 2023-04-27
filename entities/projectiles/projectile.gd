@@ -1,9 +1,9 @@
 extends Area2D
 class_name Projectile
 
-@onready var sprite := $Sprite2D as Sprite2D
-@onready var hit_vfx := $HitVfx as AnimatedSprite2D
-@onready var collision_shape := $CollisionShape2D as CollisionShape2D
+@onready var sprite = $Sprite2D as Sprite2D
+@onready var hit_vfx = $HitVfx as AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D as CollisionShape2D
 
 var speed: int
 var damage: int

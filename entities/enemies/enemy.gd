@@ -10,8 +10,10 @@ signal enemy_died(enemy: Enemy)
 @export var objective_damage := 10
 @export var kill_reward := 100
 
-@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-@onready var state_machine := $StateMachine as StateMachine
+@onready var nav_agent = $NavigationAgent2D as NavigationAgent2D
+@onready var state_machine = $StateMachine as StateMachine
+@onready var anim_sprite = $AnimatedSprite2D as AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D as CollisionShape2D
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
@@ -32,9 +34,9 @@ func _move(delta: float) -> void:
 		move_and_slide()
 	else:
 		nav_agent.set_velocity(new_velocity)
-	$AnimatedSprite2D.global_rotation = _calculate_rot($AnimatedSprite2D.global_rotation,
+	anim_sprite.global_rotation = _calculate_rot(anim_sprite.global_rotation,
 			velocity.angle(), rot_speed, delta)
-	$CollisionShape2D.global_rotation = _calculate_rot($CollisionShape2D.global_rotation,
+	collision_shape.global_rotation = _calculate_rot(collision_shape.global_rotation,
 			velocity.angle(), rot_speed, delta)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
@@ -50,14 +52,14 @@ func get_shooter() -> Shooter:
 	return null
 	
 func play_animation(anim_name: String) -> void:
-	$AnimatedSprite2D.play(anim_name)
+	anim_sprite.play(anim_name)
 		
 func die() -> void:
-	$CollisionShape2D.set_deferred("disabled", true)
+	collision_shape.set_deferred("disabled", true)
 	speed = 0
-	$AnimatedSprite2D.play("die")
+	anim_sprite.play("die")
 	enemy_died.emit(self)
 
 func _on_animated_sprite_2d_animation_finished():
-	if $AnimatedSprite2D.animation == "die":
+	if anim_sprite.animation == "die":
 		queue_free()

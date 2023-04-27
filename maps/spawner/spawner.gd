@@ -9,9 +9,9 @@ signal enemy_spawned(enemy: Enemy)
 @export var wave_count: int = 3
 @export var enemies_per_wave_count: int = 10
 
-@onready var wave_timer := $WaveTimer as Timer
-@onready var spawn_timer := $SpawnTimer as Timer
-@onready var spawn_container := $SpawnContainer as Node2D
+@onready var wave_timer = $WaveTimer as Timer
+@onready var spawn_timer = $SpawnTimer as Timer
+@onready var spawn_container = $SpawnContainer as Node2D
 @onready var spawn_probabilities := {
 	"infantry": 80,
 	"tank": 20,

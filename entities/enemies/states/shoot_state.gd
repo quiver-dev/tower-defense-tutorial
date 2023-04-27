@@ -1,7 +1,7 @@
 class_name ShootState
 extends State
 
-@onready var enemy := owner as Enemy
+@onready var enemy = owner as Enemy
 @onready var shooter : Shooter = enemy.get_shooter()
 
 func enter(sm: StateMachine, prev_state: State) -> void:
