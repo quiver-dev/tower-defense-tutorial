@@ -1,7 +1,7 @@
 extends Area2D
 class_name Projectile
 
-@onready var sprite = $Sprite2D as Sprite2D
+@onready var anim_sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var hit_vfx = $HitVfx as AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D as CollisionShape2D
 
@@ -34,7 +34,7 @@ func _on_area_entered(area):
 func _explode() -> void:
 	set_physics_process(false)
 	collision_shape.set_deferred("disabled", true)
-	sprite.hide()
+	anim_sprite.hide()
 	hit_vfx.show()
 	hit_vfx.play("hit")
 

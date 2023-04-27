@@ -8,13 +8,22 @@
 [ext_resource type="Texture2D" uid="uid://bppfk28w1j2ur" path="res://assets/projectiles/bullet/hit_vfx_01.png" id="6_amygh"]
 [ext_resource type="Texture2D" uid="uid://l2aqyecgdqkm" path="res://assets/projectiles/bullet/hit_vfx_02.png" id="7_quulh"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_irici"]
-frames = 3
-frame_0/texture = ExtResource("1_5ri27")
-frame_1/texture = ExtResource("2_jocjp")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("3_g8jt5")
-frame_2/duration = 1.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5dqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5ri27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jocjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g8jt5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eces1"]
 radius = 3.0
@@ -42,8 +51,10 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_hhitr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AnimatedTexture_irici")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t5dqr")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(27, 2.08165e-12)

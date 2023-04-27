@@ -17,15 +17,25 @@
 [ext_resource type="Texture2D" uid="uid://b4a0gt0lscdsy" path="res://assets/projectiles/shell/hit_vfx_09.png" id="15_nijb1"]
 [ext_resource type="Texture2D" uid="uid://bmsnyp0ewwn1" path="res://assets/projectiles/shell/hit_vfx_10.png" id="16_cse64"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_u7idp"]
-frames = 4
-frame_0/texture = ExtResource("2_riln2")
-frame_1/texture = ExtResource("3_nw6cq")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_qhw8t")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_5rqdc")
-frame_3/duration = 1.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cde6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_riln2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nw6cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qhw8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5rqdc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pa1xd"]
 radius = 5.0
@@ -74,8 +84,8 @@ animations = [{
 
 [node name="Shell" instance=ExtResource("1_mkumr")]
 
-[node name="Sprite2D" parent="." index="0"]
-texture = SubResource("AnimatedTexture_u7idp")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3cde6")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(25, 5.19431e-12)

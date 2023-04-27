@@ -18,13 +18,22 @@
 [ext_resource type="Texture2D" uid="uid://dsyqngjwdnmee" path="res://assets/projectiles/missile/hit_vfx_11.png" id="16_v3ymc"]
 [ext_resource type="Texture2D" uid="uid://5wx3ih7q1joy" path="res://assets/projectiles/missile/hit_vfx_12.png" id="17_k06u4"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_qscey"]
-frames = 3
-frame_0/texture = ExtResource("2_dm3dr")
-frame_1/texture = ExtResource("3_17nfg")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_7lip3")
-frame_2/duration = 1.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_axrc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dm3dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_17nfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7lip3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqhvq"]
 radius = 4.0
@@ -79,8 +88,8 @@ animations = [{
 
 [node name="Missile" instance=ExtResource("1_0bnj3")]
 
-[node name="Sprite2D" parent="." index="0"]
-texture = SubResource("AnimatedTexture_qscey")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_axrc7")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(22, 5.19431e-12)
