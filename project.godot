@@ -28,7 +28,9 @@ theme/custom="res://ui/ui_theme.tres"
 [layer_names]
 
 2d_physics/layer_1="infantry"
+2d_navigation/layer_1="ground"
 2d_physics/layer_2="tower"
+2d_navigation/layer_2="air"
 2d_physics/layer_3="projectile"
 2d_physics/layer_4="tower_slot"
 2d_physics/layer_5="objective"

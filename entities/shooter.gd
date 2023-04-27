@@ -53,19 +53,19 @@ func should_shoot() -> bool:
 		return true
 	return false
 			
-func _instantiate_projectile(_position: Vector2) -> void:
+func _instantiate_projectile(_position: Vector2, target: Node2D) -> void:
 	var projectile: Projectile = projectile_type.instantiate()
 	if map:
 		map.add_child(projectile)
 	else:
 		owner.add_child(projectile)
-	projectile.start(_position, rotation, projectile_speed, projectile_damage)
+	projectile.start(_position, rotation, projectile_speed, projectile_damage, target)
 	projectile.collision_mask = $Detector.collision_mask
 
 func shoot() -> void:
 	can_shoot = false
 	for _muzzle in gun.get_children():
-		_instantiate_projectile(_muzzle.global_position)
+		_instantiate_projectile(_muzzle.global_position, targets.front())
 	_play_animations("shoot")
 	firerate_timer.start(fire_rate)
 

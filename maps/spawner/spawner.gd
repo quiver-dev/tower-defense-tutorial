@@ -15,11 +15,13 @@ signal enemy_spawned(enemy: Enemy)
 @onready var spawn_probabilities := {
 	"infantry": 80,
 	"tank": 20,
+	"helicopter": 5,
 }
 
 var enemy_scenes := {
 	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
 	"tank": preload("res://entities/enemies/tanks/tank.tscn"),
+	"helicopter": preload("res://entities/enemies/helicopters/helicopter.tscn"),
 }
 
 var spawn_locations := []
