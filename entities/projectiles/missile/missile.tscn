@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://b88tjlefe2cuf"]
+[gd_scene load_steps=22 format=3 uid="uid://b88tjlefe2cuf"]
 
 [ext_resource type="PackedScene" uid="uid://q5jnvb3o2y4q" path="res://entities/projectiles/projectile.tscn" id="1_0bnj3"]
 [ext_resource type="Texture2D" uid="uid://ee4dp2eb8xis" path="res://assets/projectiles/missile/idle_00.png" id="2_dm3dr"]
+[ext_resource type="Script" path="res://entities/projectiles/missile/missile.gd" id="2_iuevu"]
 [ext_resource type="Texture2D" uid="uid://t0fis8bbmyq8" path="res://assets/projectiles/missile/idle_01.png" id="3_17nfg"]
 [ext_resource type="Texture2D" uid="uid://bi0din1qedikm" path="res://assets/projectiles/missile/idle_02.png" id="4_7lip3"]
 [ext_resource type="Texture2D" uid="uid://don80qn6sh0lq" path="res://assets/projectiles/missile/hit_vfx_00.png" id="5_evfhk"]
@@ -87,6 +88,8 @@ animations = [{
 }]
 
 [node name="Missile" instance=ExtResource("1_0bnj3")]
+script = ExtResource("2_iuevu")
+steer_force = 4000.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_axrc7")

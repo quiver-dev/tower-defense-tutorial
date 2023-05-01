@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c622tashansaw"]
+[gd_scene load_steps=120 format=3 uid="uid://dd2i8vnnpxsxl"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_d2m0d"]
 [ext_resource type="Script" path="res://entities/enemies/helicopters/helicopter.gd" id="2_vysee"]
@@ -50,9 +50,9 @@
 [ext_resource type="Script" path="res://entities/enemies/helicopters/helicopter_shoot_stationary_state.gd" id="46_5gylw"]
 [ext_resource type="Texture2D" uid="uid://bxxkvc0e2k8yk" path="res://assets/enemies/helicopter/tier1/wings_move_02.png" id="46_7inwu"]
 [ext_resource type="PackedScene" uid="uid://b88tjlefe2cuf" path="res://entities/projectiles/missile/missile.tscn" id="47_4mpo3"]
+[ext_resource type="Script" path="res://entities/shooter_alternating.gd" id="47_d7kkr"]
 [ext_resource type="Texture2D" uid="uid://c3ctoyrk4xqn4" path="res://assets/enemies/helicopter/tier1/wings_move_03.png" id="47_eawah"]
 [ext_resource type="Texture2D" uid="uid://dbfafr5rk4l8w" path="res://assets/enemies/helicopter/tier1/wings_move_04.png" id="48_oy7o6"]
-[ext_resource type="Script" path="res://entities/enemies/helicopters/shooter_helicopter.gd" id="48_x2rdp"]
 [ext_resource type="Texture2D" uid="uid://ggno2swjk8jo" path="res://assets/enemies/helicopter/tier1/wings_move_05.png" id="49_y13i5"]
 [ext_resource type="Texture2D" uid="uid://xxhexmvd26f7" path="res://assets/enemies/helicopter/tier1/wings_shoot_a_00.png" id="50_kfltn"]
 [ext_resource type="Texture2D" uid="uid://daairbi0qb16h" path="res://assets/enemies/helicopter/tier1/wings_shoot_a_01.png" id="51_pithh"]
@@ -598,7 +598,7 @@ script = ExtResource("46_5gylw")
 
 [node name="Shooter" parent="." index="4" instance=ExtResource("43_m8067")]
 position = Vector2(-4, 0)
-script = ExtResource("48_x2rdp")
+script = ExtResource("47_d7kkr")
 fire_rate = 4.0
 projectile_type = ExtResource("47_4mpo3")
 projectile_speed = 400
