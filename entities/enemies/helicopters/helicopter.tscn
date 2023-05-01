@@ -267,22 +267,7 @@ height = 192.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("44_wab5t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_crslt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_7inwu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_eawah")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_oy7o6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_y13i5")
+"texture": null
 }],
 "loop": false,
 "name": &"die",
@@ -575,6 +560,9 @@ z_index = 20
 collision_layer = 64
 collision_mask = 4
 script = ExtResource("2_vysee")
+speed = 170
+rot_speed = 4.0
+kill_reward = 300
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_aab0f")

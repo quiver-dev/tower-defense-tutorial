@@ -89,7 +89,7 @@ animations = [{
 
 [node name="Missile" instance=ExtResource("1_0bnj3")]
 script = ExtResource("2_iuevu")
-steer_force = 4000.0
+steer_force = 40.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_axrc7")
