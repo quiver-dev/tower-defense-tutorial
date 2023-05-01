@@ -5,7 +5,7 @@ extends Area2D
 var _towers_to_build := {
 	"gatling": preload("res://entities/towers/gatling_tower.tscn"),
 	"cannon": preload("res://entities/towers/cannon_tower.tscn"),
-	"missile": preload("res://entities/towers/cannon_tower.tscn")
+	"missile": preload("res://entities/towers/missile_tower.tscn")
 }
 var tower : Tower
 var map : Map

@@ -14,6 +14,3 @@ func shoot() -> void:
 	_instantiate_projectile(_muzzle.global_position, targets.front())
 	firerate_timer.start(fire_rate)
 	_shoot_a = !_shoot_a
-
-func _rotate_shooter(_delta: float):
-	pass
