@@ -246,7 +246,7 @@ script = ExtResource("2_mkdqt")
 fire_rate = 5.0
 projectile_type = ExtResource("3_cbcw4")
 projectile_speed = 400
-projectile_damage = 100
+projectile_damage = 20
 
 [node name="Gun" parent="Shooter" index="0"]
 sprite_frames = SubResource("SpriteFrames_wswjn")

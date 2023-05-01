@@ -7,7 +7,6 @@ signal enemy_died(enemy: Enemy)
 @export var rot_speed: float = 10.0
 @export var health := 100:
 	set = set_health
-@export var objective_damage := 10
 @export var kill_reward := 100
 
 @onready var nav_agent = $NavigationAgent2D as NavigationAgent2D

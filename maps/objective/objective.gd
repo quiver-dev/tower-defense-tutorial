@@ -17,6 +17,7 @@ func set_health(value: int) -> void:
 		anim_sprite.play("die")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy:
-		health -= (body as Enemy).objective_damage
-		(body as Enemy).queue_free()
+	if body is Infantry:
+		var infantry = body as Infantry
+		health -= infantry.objective_damage
+		infantry.queue_free()

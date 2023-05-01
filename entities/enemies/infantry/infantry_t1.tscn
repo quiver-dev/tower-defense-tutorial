@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bs0qa3s4qqrct"]
+[gd_scene load_steps=22 format=3 uid="uid://bs0qa3s4qqrct"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_tubwb"]
 [ext_resource type="Texture2D" uid="uid://ddj00e6uc0kcf" path="res://assets/enemies/infantry/tier1/die_00.png" id="2_4hyv2"]
+[ext_resource type="Script" path="res://entities/enemies/infantry/infantry.gd" id="2_jdd0j"]
 [ext_resource type="Texture2D" uid="uid://bd0rbuowumkg5" path="res://assets/enemies/infantry/tier1/die_01.png" id="3_ca8a8"]
 [ext_resource type="Texture2D" uid="uid://dwyuhw444iwvw" path="res://assets/enemies/infantry/tier1/die_02.png" id="4_7y183"]
 [ext_resource type="Texture2D" uid="uid://ckh6vufvugt1p" path="res://assets/enemies/infantry/tier1/die_03.png" id="5_mxjuf"]
@@ -93,6 +94,8 @@ size = Vector2(51, 61)
 
 [node name="InfantryT1" instance=ExtResource("1_tubwb")]
 collision_mask = 7
+script = ExtResource("2_jdd0j")
+objective_damage = 10
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nfy43")
