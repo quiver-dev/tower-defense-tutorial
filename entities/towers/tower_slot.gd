@@ -75,7 +75,9 @@ func _on_exchange_pressed():
 
 
 func _on_sell_pressed():
-	var tower_value: int = floor(map.tower_costs[tower.tower_type] * tower.health / tower.max_health)
+	var tower_cost: int = map.tower_costs[tower.tower_type]
+	var remaining_health_pct: float = float(tower.health) / tower.max_health
+	var tower_value: int = floor(tower_cost * remaining_health_pct)
 	map.money += tower_value
 	tower.queue_free()
 	tower_actions.visible = false
