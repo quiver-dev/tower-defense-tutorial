@@ -240,6 +240,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-109, -220, -99, 1965, 
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_dh14p")
+starting_money = null
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-856, 295)
@@ -252,6 +253,11 @@ position = Vector2(3158, 807)
 
 [node name="Camera2D" parent="." instance=ExtResource("4_ugg6l")]
 position = Vector2(576, 314)
+min_zoom = null
+max_zoom = null
+zoom_rate = null
+zoom_delta = null
+drag_speed = null
 
 [node name="Spawner" parent="." instance=ExtResource("5_jhdu7")]
 

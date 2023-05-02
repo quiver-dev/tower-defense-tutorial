@@ -1,4 +1,4 @@
-class_name Hud
+class_name HUD
 extends CanvasLayer
 
 @onready var health_bar = %HealthBar as TextureProgressBar

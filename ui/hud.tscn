@@ -26,7 +26,7 @@ modulate_color = Color(1, 1, 1, 0.627451)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nltwi"]
 
-[node name="Hud" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1i8l6")
 
 [node name="Control" type="Control" parent="."]

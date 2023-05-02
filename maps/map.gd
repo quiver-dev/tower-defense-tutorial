@@ -15,7 +15,7 @@ var money : int:
 var tower_costs : Dictionary
 
 func _ready():
-	var hud = $Camera2D.hud as Hud
+	var hud = $Camera2D.hud as HUD
 	money_changed.connect(hud._on_money_changed)
 	money = starting_money
 	var tower_costs_resource = load("res://entities/towers/tower_costs_json.tres")

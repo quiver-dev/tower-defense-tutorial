@@ -7,7 +7,7 @@ extends Camera2D
 @export var drag_speed: float = 4.0
 
 @onready var target_zoom: float = zoom.x
-@onready var hud = $Hud as Hud
+@onready var hud = $HUD as HUD
 
 func _physics_process(delta: float) -> void:
 	zoom.x = lerp(zoom.x, target_zoom, zoom_rate * delta)

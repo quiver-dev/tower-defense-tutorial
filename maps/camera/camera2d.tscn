@@ -5,5 +5,10 @@
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_msh2n")
+min_zoom = null
+max_zoom = null
+zoom_rate = null
+zoom_delta = null
+drag_speed = null
 
-[node name="Hud" parent="." instance=ExtResource("2_u2kdw")]
+[node name="HUD" parent="." instance=ExtResource("2_u2kdw")]
