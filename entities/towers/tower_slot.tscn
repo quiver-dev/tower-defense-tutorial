@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvn8uh11r13wr"]
+[gd_scene load_steps=8 format=3 uid="uid://dvn8uh11r13wr"]
 
 [ext_resource type="Texture2D" uid="uid://dvw3hr7iyr2c6" path="res://assets/towers/single/tier1/base_idle_00.png" id="1_ewe1w"]
 [ext_resource type="Script" path="res://entities/towers/tower_slot.gd" id="1_y88k1"]
 [ext_resource type="PackedScene" uid="uid://bhm0jmto8qnw5" path="res://ui/tower_popup.tscn" id="3_d18hb"]
+[ext_resource type="Texture2D" uid="uid://ss61ed6jjgov" path="res://assets/ui/turret buttons/repair.png" id="4_s6hwn"]
+[ext_resource type="Texture2D" uid="uid://capnclxfkk2lx" path="res://assets/ui/turret buttons/replace.png" id="5_qshhm"]
+[ext_resource type="Texture2D" uid="uid://qst02smqv1uv" path="res://assets/ui/turret buttons/remove.png" id="6_r8luu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3f41g"]
 size = Vector2(102, 101)
@@ -24,5 +27,27 @@ shape = SubResource("RectangleShape2D_3f41g")
 [node name="TowerPopup" parent="UI" instance=ExtResource("3_d18hb")]
 visible = false
 
+[node name="TowerActions" type="VBoxContainer" parent="UI"]
+visible = false
+offset_left = 74.0
+offset_top = -44.0
+offset_right = 243.0
+offset_bottom = 453.0
+
+[node name="Repair" type="Button" parent="UI/TowerActions"]
+layout_mode = 2
+icon = ExtResource("4_s6hwn")
+
+[node name="Exchange" type="Button" parent="UI/TowerActions"]
+layout_mode = 2
+icon = ExtResource("5_qshhm")
+
+[node name="Sell" type="Button" parent="UI/TowerActions"]
+layout_mode = 2
+icon = ExtResource("6_r8luu")
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="tower_requested" from="UI/TowerPopup" to="." method="_on_tower_popup_tower_requested"]
+[connection signal="pressed" from="UI/TowerActions/Repair" to="." method="_on_repair_pressed"]
+[connection signal="pressed" from="UI/TowerActions/Exchange" to="." method="_on_exchange_pressed"]
+[connection signal="pressed" from="UI/TowerActions/Sell" to="." method="_on_sell_pressed"]

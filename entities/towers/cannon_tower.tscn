@@ -197,6 +197,7 @@ animations = [{
 radius = 600.0
 
 [node name="CannonTower" instance=ExtResource("1_u77ig")]
+tower_type = "cannon"
 
 [node name="Shooter" parent="." index="2"]
 fire_rate = 2.5

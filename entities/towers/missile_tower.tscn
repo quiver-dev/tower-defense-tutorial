@@ -231,15 +231,45 @@ animations = [{
 "texture": ExtResource("50_wfxrw")
 }],
 "loop": false,
-"name": &"shoot",
+"name": &"shoot_a",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_m8y45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_a0w7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_yyrrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_7sv34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_vxrn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_w0hqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_bnitx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_wfxrw")
+}],
+"loop": false,
+"name": &"shoot_b",
 "speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4oasq"]
 radius = 1000.0
 
-[node name="Tower" instance=ExtResource("1_w08et")]
+[node name="MissileTower" instance=ExtResource("1_w08et")]
 health = 200
+tower_type = "missile"
 
 [node name="Shooter" parent="." index="2"]
 script = ExtResource("2_mkdqt")
@@ -260,7 +290,7 @@ position = Vector2(11, 27)
 
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 sprite_frames = SubResource("SpriteFrames_6uecc")
-animation = &"shoot"
+animation = &"shoot_b"
 
 [node name="Detector" parent="Shooter" index="2"]
 collision_mask = 64
