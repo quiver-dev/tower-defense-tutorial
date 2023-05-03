@@ -625,4 +625,11 @@ sprite_frames = SubResource("SpriteFrames_p2nbl")
 animation = &"move"
 autoplay = "move"
 
+[node name="EntityHUD" parent="UI" index="0"]
+offset_left = -101.0
+offset_top = -103.0
+offset_right = -101.0
+offset_bottom = -103.0
+scale = Vector2(2, 1)
+
 [editable path="Shooter"]

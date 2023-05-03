@@ -13,13 +13,19 @@ signal enemy_died(enemy: Enemy)
 @onready var state_machine = $StateMachine as StateMachine
 @onready var anim_sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D as CollisionShape2D
+@onready var hud := $UI/EntityHUD as EntityHUD
 
 func _ready() -> void:
-	nav_agent.max_speed = speed
-	
 	var objective: Node2D = $/root/Map/Objective
 	nav_agent.set_target_position(objective.global_position)
 	nav_agent.max_speed = speed
+	
+	hud.health_bar.max_value = health
+	hud.health_bar.value = health
+	
+	var shooter = get_shooter()
+	if shooter:
+		shooter.has_shot.connect(self._on_shooter_has_shot)
 	
 func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: float) -> float:
 	return lerp_angle(start_rot, target_rot, _speed * delta)
@@ -44,6 +50,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	
 func set_health(value: int) -> void:
 	health = max(0, value)
+	if is_instance_valid(hud):
+		hud.health_bar.value = health
 	if health == 0:
 		state_machine.transition_to("Die")
 		
@@ -62,3 +70,6 @@ func die() -> void:
 func _on_animated_sprite_2d_animation_finished():
 	if anim_sprite.animation == "die":
 		queue_free()
+		
+func _on_shooter_has_shot(reload_time):
+	hud.animate_reload_bar(reload_time)

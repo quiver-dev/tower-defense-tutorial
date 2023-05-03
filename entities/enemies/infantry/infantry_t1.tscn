@@ -99,7 +99,7 @@ objective_damage = 10
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_nfy43")
-animation = &"die"
+animation = &"move"
 autoplay = "move"
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -109,3 +109,10 @@ shape = SubResource("RectangleShape2D_cagm2")
 [node name="NavigationAgent2D" parent="." index="2"]
 avoidance_enabled = true
 radius = 24.0
+
+[node name="EntityHUD" parent="UI" index="0"]
+offset_left = -24.0
+offset_top = -52.0
+offset_right = -24.0
+offset_bottom = -52.0
+scale = Vector2(0.52381, 0.615381)

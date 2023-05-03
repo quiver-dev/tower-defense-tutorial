@@ -1,6 +1,8 @@
 extends Node2D
 class_name Shooter
 
+signal has_shot(reload_time: float)
+
 @export var fire_rate: float = 0.1
 @export var rot_speed: float = 5.0
 @export var projectile_type: PackedScene
@@ -68,6 +70,7 @@ func shoot() -> void:
 		_instantiate_projectile(_muzzle.global_position, targets.front())
 	_play_animations("shoot")
 	firerate_timer.start(fire_rate)
+	has_shot.emit(firerate_timer.wait_time)
 
 	
 func die():

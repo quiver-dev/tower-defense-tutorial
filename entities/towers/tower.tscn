@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://babinwqpjwhmn"]
+[gd_scene load_steps=6 format=3 uid="uid://babinwqpjwhmn"]
 
 [ext_resource type="Script" path="res://entities/towers/tower.gd" id="1_u2rls"]
 [ext_resource type="Texture2D" uid="uid://nrm8gauiksh3" path="res://assets/towers/gatling/tier1/base_idle_00.png" id="1_ufm6q"]
 [ext_resource type="PackedScene" uid="uid://bswr4r1sn2dki" path="res://entities/shooter.tscn" id="3_cw0b1"]
+[ext_resource type="PackedScene" uid="uid://tyfxjrygr03c" path="res://ui/entity_hud.tscn" id="4_psd3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawuj"]
 size = Vector2(119, 114)
@@ -24,6 +25,17 @@ shape = SubResource("RectangleShape2D_xawuj")
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 autoplay = "idle"
 
+[node name="UI" type="Node2D" parent="."]
+z_index = 50
+
+[node name="EntityHUD" parent="UI" instance=ExtResource("4_psd3c")]
+offset_left = -57.0
+offset_top = -92.0
+offset_right = -57.0
+offset_bottom = -92.0
+scale = Vector2(1.2, 1)
+
+[connection signal="has_shot" from="Shooter" to="." method="_on_shooter_has_shot"]
 [connection signal="animation_finished" from="Shooter/Gun" to="." method="_on_gun_animation_finished"]
 
 [editable path="Shooter"]

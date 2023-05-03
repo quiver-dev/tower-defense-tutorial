@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyfxjrygr03c"]
+
+[ext_resource type="Script" path="res://ui/entity_hud.gd" id="1_heocr"]
+
+[sub_resource type="Gradient" id="Gradient_1343j"]
+colors = PackedColorArray(0.533333, 0.878431, 0.376471, 1, 0.607843, 1, 0.427451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7tyuy"]
+gradient = SubResource("Gradient_1343j")
+width = 100
+height = 20
+
+[node name="EntityHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_heocr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 28.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_7tyuy")
+
+[node name="ReloadBar" type="ProgressBar" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+show_percentage = false
+
+[connection signal="value_changed" from="VBoxContainer/HealthBar" to="." method="_on_health_bar_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/ReloadBar" to="." method="_on_reload_bar_value_changed"]

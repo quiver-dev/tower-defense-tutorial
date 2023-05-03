@@ -418,4 +418,11 @@ script = ExtResource("75_2lmno")
 [node name="ShootStationary" type="Node" parent="StateMachine" index="3"]
 script = ExtResource("76_ka8fe")
 
+[node name="EntityHUD" parent="UI" index="0"]
+offset_left = -76.0
+offset_top = -96.0
+offset_right = -76.0
+offset_bottom = -96.0
+scale = Vector2(1.52, 1)
+
 [editable path="Shooter"]

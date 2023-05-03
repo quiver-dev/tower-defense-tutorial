@@ -11,9 +11,12 @@ var max_health: int
 
 @onready var collision = $CollisionShape2D as CollisionShape2D
 @onready var shooter = $Shooter as Shooter
+@onready var hud := $UI/EntityHUD as EntityHUD
 
 func _ready():
 	max_health = health
+	hud.health_bar.max_value = max_health
+	hud.health_bar.value = health
 
 func _physics_process(delta: float) -> void:
 	if shooter.targets:
@@ -23,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	
 func set_health(value: int) -> void:
 	health = max(0, value)
+	if is_instance_valid(hud):
+		hud.health_bar.value = health
 	if health == 0:
 		set_physics_process(false)
 		collision.set_deferred("disabled", true)
@@ -35,3 +40,7 @@ func repair():
 func _on_gun_animation_finished():
 	if shooter.gun.animation == "die":
 		queue_free()
+
+
+func _on_shooter_has_shot(reload_time):
+	hud.animate_reload_bar(reload_time)

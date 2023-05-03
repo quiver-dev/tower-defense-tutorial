@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxqcw3ve5yu8b"]
+[gd_scene load_steps=6 format=3 uid="uid://bxqcw3ve5yu8b"]
 
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_yc04v"]
 [ext_resource type="Script" path="res://entities/state_machine.gd" id="2_2begw"]
 [ext_resource type="Script" path="res://entities/enemies/states/move_state.gd" id="3_hi20q"]
 [ext_resource type="Script" path="res://entities/enemies/states/die_state.gd" id="4_ba0aw"]
+[ext_resource type="PackedScene" uid="uid://tyfxjrygr03c" path="res://ui/entity_hud.tscn" id="5_s7gh8"]
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_yc04v")
@@ -23,6 +24,14 @@ script = ExtResource("3_hi20q")
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource("4_ba0aw")
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="EntityHUD" parent="UI" instance=ExtResource("5_s7gh8")]
+offset_left = -53.0
+offset_top = -57.0
+offset_right = -13.0
+offset_bottom = -17.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
