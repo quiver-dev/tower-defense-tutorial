@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://dd2i8vnnpxsxl"]
+[gd_scene load_steps=122 format=3 uid="uid://dd2i8vnnpxsxl"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_d2m0d"]
 [ext_resource type="Script" path="res://entities/enemies/helicopters/helicopter.gd" id="2_vysee"]
@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://28wqjvpkow85" path="res://assets/enemies/helicopter/tier1/rotor_die_03.png" id="73_iyuoa"]
 [ext_resource type="Texture2D" uid="uid://dqtedv7un4c1y" path="res://assets/enemies/helicopter/tier1/rotor_die_04.png" id="74_3c5ky"]
 [ext_resource type="Texture2D" uid="uid://030hhfce65xv" path="res://assets/enemies/helicopter/tier1/rotor_die_05.png" id="75_wb5vn"]
+[ext_resource type="AudioStream" uid="uid://bek7nujsboclr" path="res://assets/sounds/missile.wav" id="75_wd4uw"]
 [ext_resource type="Texture2D" uid="uid://dul4qmcudhh58" path="res://assets/enemies/helicopter/tier1/rotor_die_06.png" id="76_d7la4"]
 [ext_resource type="Texture2D" uid="uid://v0jgowl4ftgm" path="res://assets/enemies/helicopter/tier1/rotor_die_07.png" id="77_pjuhr"]
 [ext_resource type="Texture2D" uid="uid://bsajyao8i06rd" path="res://assets/enemies/helicopter/tier1/rotor_die_08.png" id="78_q3c6u"]
@@ -112,6 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5vpooor7mso" path="res://assets/enemies/helicopter/tier1/shadow_move_03.png" id="105_b0fxt"]
 [ext_resource type="Texture2D" uid="uid://drmec6elvj35h" path="res://assets/enemies/helicopter/tier1/shadow_move_04.png" id="106_6yv78"]
 [ext_resource type="Texture2D" uid="uid://bhubq80sphqcu" path="res://assets/enemies/helicopter/tier1/shadow_move_05.png" id="107_4qaa3"]
+[ext_resource type="AudioStream" uid="uid://6i30cx6p5vit" path="res://assets/sounds/helicopter.wav" id="114_70imm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aab0f"]
 animations = [{
@@ -614,6 +616,9 @@ shape = SubResource("CircleShape2D_mdp10")
 target_position = Vector2(650, 2.08165e-12)
 collision_mask = 18
 
+[node name="ShootSound" parent="Shooter" index="5"]
+stream = ExtResource("75_wd4uw")
+
 [node name="Rotor" type="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_jww13")
 animation = &"move"
@@ -624,6 +629,10 @@ position = Vector2(8, 32)
 sprite_frames = SubResource("SpriteFrames_p2nbl")
 animation = &"move"
 autoplay = "move"
+
+[node name="DefaultSound" parent="." index="7"]
+stream = ExtResource("114_70imm")
+volume_db = 12.0
 
 [node name="EntityHUD" parent="UI" index="0"]
 offset_left = -101.0

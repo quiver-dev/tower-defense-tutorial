@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bs0qa3s4qqrct"]
+[gd_scene load_steps=23 format=3 uid="uid://bs0qa3s4qqrct"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_tubwb"]
 [ext_resource type="Texture2D" uid="uid://ddj00e6uc0kcf" path="res://assets/enemies/infantry/tier1/die_00.png" id="2_4hyv2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bakwd1r68eyvd" path="res://assets/enemies/infantry/tier1/move_05.png" id="15_wq1qw"]
 [ext_resource type="Texture2D" uid="uid://bigmeebbjg8p0" path="res://assets/enemies/infantry/tier1/move_06.png" id="16_nx6os"]
 [ext_resource type="Texture2D" uid="uid://8yi85l6jhe53" path="res://assets/enemies/infantry/tier1/move_07.png" id="17_tauae"]
+[ext_resource type="AudioStream" uid="uid://b8yyvb42ow7c8" path="res://assets/sounds/infantry.wav" id="19_my5tl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8c3n7"]
 atlas = ExtResource("9_mqbw8")
@@ -109,6 +110,10 @@ shape = SubResource("RectangleShape2D_cagm2")
 [node name="NavigationAgent2D" parent="." index="2"]
 avoidance_enabled = true
 radius = 24.0
+
+[node name="DefaultSound" parent="." index="4"]
+stream = ExtResource("19_my5tl")
+volume_db = -12.0
 
 [node name="EntityHUD" parent="UI" index="0"]
 offset_left = -24.0

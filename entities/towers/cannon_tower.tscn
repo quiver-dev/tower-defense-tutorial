@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cf3wjox4aqked"]
+[gd_scene load_steps=46 format=3 uid="uid://cf3wjox4aqked"]
 
 [ext_resource type="PackedScene" uid="uid://babinwqpjwhmn" path="res://entities/towers/tower.tscn" id="1_u77ig"]
 [ext_resource type="PackedScene" uid="uid://ccknr414dqpl1" path="res://entities/projectiles/shell/shell.tscn" id="2_gakpf"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b37wtvafqxnc3" path="res://assets/towers/single/tier1/gun_fx_04.png" id="39_up1or"]
 [ext_resource type="Texture2D" uid="uid://x3fv754tajg0" path="res://assets/towers/single/tier1/gun_fx_05.png" id="40_te4iw"]
 [ext_resource type="Texture2D" uid="uid://2t8xbytcnf40" path="res://assets/towers/single/tier1/gun_fx_06.png" id="41_sot3s"]
+[ext_resource type="AudioStream" uid="uid://mc4d0q7wy22o" path="res://assets/sounds/cannon_shell.wav" id="42_yapq6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8ddm"]
 animations = [{
@@ -223,5 +224,8 @@ shape = SubResource("CircleShape2D_21ve2")
 
 [node name="LookAhead" parent="Shooter" index="3"]
 collision_mask = 32
+
+[node name="ShootSound" parent="Shooter" index="5"]
+stream = ExtResource("42_yapq6")
 
 [editable path="Shooter"]

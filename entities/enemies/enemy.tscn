@@ -15,6 +15,9 @@ script = ExtResource("1_yc04v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
+[node name="DefaultSound" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("start_state")]
 script = ExtResource("2_2begw")
 start_state = NodePath("Move")

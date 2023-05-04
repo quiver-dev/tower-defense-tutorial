@@ -177,6 +177,8 @@ position = Vector2(68, 0)
 sprite_frames = SubResource("SpriteFrames_hnreh")
 animation = &"idle"
 
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+
 [node name="Detector" type="Area2D" parent="."]
 collision_layer = 0
 

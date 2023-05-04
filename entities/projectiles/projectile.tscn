@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://q5jnvb3o2y4q"]
+[gd_scene load_steps=12 format=3 uid="uid://q5jnvb3o2y4q"]
 
 [ext_resource type="Texture2D" uid="uid://b6f1rp1xunuyd" path="res://assets/projectiles/bullet/idle_00.png" id="1_5ri27"]
 [ext_resource type="Script" path="res://entities/projectiles/projectile.gd" id="1_hhitr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwhh01u712rmk" path="res://assets/projectiles/bullet/hit_vfx_00.png" id="5_ojp2u"]
 [ext_resource type="Texture2D" uid="uid://bppfk28w1j2ur" path="res://assets/projectiles/bullet/hit_vfx_01.png" id="6_amygh"]
 [ext_resource type="Texture2D" uid="uid://l2aqyecgdqkm" path="res://assets/projectiles/bullet/hit_vfx_02.png" id="7_quulh"]
+[ext_resource type="AudioStream" uid="uid://cov81lbinoeee" path="res://assets/sounds/bullet_hit.wav" id="8_uy51v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t5dqr"]
 animations = [{
@@ -66,6 +67,9 @@ visible = false
 position = Vector2(40, 2.08165e-12)
 sprite_frames = SubResource("SpriteFrames_h70lc")
 animation = &"hit"
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_uy51v")
 
 [node name="LifetimeTimer" type="Timer" parent="."]
 wait_time = 10.0

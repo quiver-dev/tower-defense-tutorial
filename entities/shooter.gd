@@ -16,6 +16,7 @@ var map: Node
 
 @onready var gun = $Gun as AnimatedSprite2D
 @onready var muzzle_flash = $MuzzleFlash as AnimatedSprite2D
+@onready var shoot_sound = $ShootSound as AudioStreamPlayer2D
 @onready var lookahead = $LookAhead as RayCast2D
 @onready var firerate_timer = $FireRateTimer as Timer
 
@@ -69,6 +70,7 @@ func shoot() -> void:
 	for _muzzle in gun.get_children():
 		_instantiate_projectile(_muzzle.global_position, targets.front())
 	_play_animations("shoot")
+	shoot_sound.play()
 	firerate_timer.start(fire_rate)
 	has_shot.emit(firerate_timer.wait_time)
 

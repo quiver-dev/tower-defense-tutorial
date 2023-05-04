@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccknr414dqpl1"]
+[gd_scene load_steps=21 format=3 uid="uid://ccknr414dqpl1"]
 
 [ext_resource type="PackedScene" uid="uid://q5jnvb3o2y4q" path="res://entities/projectiles/projectile.tscn" id="1_mkumr"]
 [ext_resource type="Texture2D" uid="uid://cjvm466hvc6kj" path="res://assets/projectiles/shell/idle_00.png" id="2_riln2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://caadsnerl3yd6" path="res://assets/projectiles/shell/hit_vfx_08.png" id="14_3qenh"]
 [ext_resource type="Texture2D" uid="uid://b4a0gt0lscdsy" path="res://assets/projectiles/shell/hit_vfx_09.png" id="15_nijb1"]
 [ext_resource type="Texture2D" uid="uid://bmsnyp0ewwn1" path="res://assets/projectiles/shell/hit_vfx_10.png" id="16_cse64"]
+[ext_resource type="AudioStream" uid="uid://du4dkete485ka" path="res://assets/sounds/shell_hit.wav" id="17_tkebj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3cde6"]
 animations = [{
@@ -93,3 +94,6 @@ shape = SubResource("CapsuleShape2D_pa1xd")
 
 [node name="HitVfx" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_q4ol1")
+
+[node name="HitSound" parent="." index="3"]
+stream = ExtResource("17_tkebj")

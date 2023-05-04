@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cv0ejciwmt5wv"]
+[gd_scene load_steps=85 format=3 uid="uid://cv0ejciwmt5wv"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_ipxtn"]
 [ext_resource type="Script" path="res://entities/enemies/tanks/tank.gd" id="2_wp1vt"]
@@ -76,7 +76,9 @@
 [ext_resource type="Texture2D" uid="uid://by5giixwq2d7f" path="res://assets/enemies/tank/tier1/gun_fx_07.png" id="73_mobkn"]
 [ext_resource type="Script" path="res://entities/enemies/states/shooter_move_state.gd" id="74_sjcb8"]
 [ext_resource type="Script" path="res://entities/enemies/states/shoot_state.gd" id="75_2lmno"]
+[ext_resource type="AudioStream" uid="uid://cpkewwd6hde3p" path="res://assets/sounds/tank_shell.wav" id="75_uuxag"]
 [ext_resource type="Script" path="res://entities/enemies/states/shoot_stationary_state.gd" id="76_ka8fe"]
+[ext_resource type="AudioStream" uid="uid://dg0bq2gev32es" path="res://assets/sounds/tank.wav" id="79_ledhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
 animations = [{
@@ -400,14 +402,21 @@ position = Vector2(59, 0)
 sprite_frames = SubResource("SpriteFrames_1c6c3")
 autoplay = "idle"
 
-[node name="Detector" parent="Shooter" index="2"]
+[node name="ShootSound" parent="Shooter" index="2"]
+stream = ExtResource("75_uuxag")
+
+[node name="Detector" parent="Shooter" index="3"]
 collision_mask = 18
 
 [node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
 shape = SubResource("CircleShape2D_jyxif")
 
-[node name="LookAhead" parent="Shooter" index="3"]
+[node name="LookAhead" parent="Shooter" index="4"]
 collision_mask = 18
+
+[node name="DefaultSound" parent="." index="4"]
+stream = ExtResource("79_ledhq")
+volume_db = -12.0
 
 [node name="Move" parent="StateMachine" index="0"]
 script = ExtResource("74_sjcb8")

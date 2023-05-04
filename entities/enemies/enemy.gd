@@ -13,6 +13,7 @@ signal enemy_died(enemy: Enemy)
 @onready var state_machine = $StateMachine as StateMachine
 @onready var anim_sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D as CollisionShape2D
+@onready var default_sound = $DefaultSound as AudioStreamPlayer2D
 @onready var hud := $UI/EntityHUD as EntityHUD
 
 func _ready() -> void:
@@ -65,6 +66,7 @@ func die() -> void:
 	collision_shape.set_deferred("disabled", true)
 	speed = 0
 	anim_sprite.play("die")
+	default_sound.stop()
 	enemy_died.emit(self)
 
 func _on_animated_sprite_2d_animation_finished():

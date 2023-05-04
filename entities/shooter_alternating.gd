@@ -12,6 +12,7 @@ func shoot() -> void:
 		muzzle = gun.get_children()[1]
 		_play_animations("shoot_b")
 	muzzle_flash.global_position = muzzle.global_position
+	shoot_sound.play()
 	_instantiate_projectile(muzzle.global_position, targets.front())
 	firerate_timer.start(fire_rate)
 	_shoot_a = !_shoot_a

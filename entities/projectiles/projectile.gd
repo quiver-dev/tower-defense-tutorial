@@ -4,6 +4,7 @@ class_name Projectile
 @onready var anim_sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var hit_vfx = $HitVfx as AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D as CollisionShape2D
+@onready var hit_sound = $HitSound as AudioStreamPlayer2D
 
 var speed: int
 var damage: int
@@ -37,6 +38,7 @@ func _explode() -> void:
 	anim_sprite.hide()
 	hit_vfx.show()
 	hit_vfx.play("hit")
+	hit_sound.play()
 
 
 func _on_hit_vfx_animation_finished():
