@@ -6,7 +6,7 @@ signal tower_destroyed
 @export_range(1, 1000) var health: int = 100:
 	set = set_health
 @export var tower_type: String
-@export var detector_color := Color(0, 0, 1.0, 0.09)
+@export var detector_color := Color(0, 0, 1.0, 0.1)
 
 var max_health: int
 var _is_mouse_hovering := false
