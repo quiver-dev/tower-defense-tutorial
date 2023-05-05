@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cv0ejciwmt5wv"]
+[gd_scene load_steps=86 format=3 uid="uid://cv0ejciwmt5wv"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_ipxtn"]
 [ext_resource type="Script" path="res://entities/enemies/tanks/tank.gd" id="2_wp1vt"]
@@ -79,6 +79,7 @@
 [ext_resource type="AudioStream" uid="uid://cpkewwd6hde3p" path="res://assets/sounds/tank_shell.wav" id="75_uuxag"]
 [ext_resource type="Script" path="res://entities/enemies/states/shoot_stationary_state.gd" id="76_ka8fe"]
 [ext_resource type="AudioStream" uid="uid://dg0bq2gev32es" path="res://assets/sounds/tank.wav" id="79_ledhq"]
+[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="80_3hdrf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
 animations = [{
@@ -417,6 +418,9 @@ collision_mask = 18
 [node name="DefaultSound" parent="." index="4"]
 stream = ExtResource("79_ledhq")
 volume_db = -12.0
+
+[node name="Explosion" parent="." index="5" instance=ExtResource("80_3hdrf")]
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="Move" parent="StateMachine" index="0"]
 script = ExtResource("74_sjcb8")

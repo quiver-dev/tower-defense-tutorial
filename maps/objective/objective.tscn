@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cs8gukdleq2w8"]
+[gd_scene load_steps=46 format=3 uid="uid://cs8gukdleq2w8"]
 
 [ext_resource type="Script" path="res://maps/objective/objective.gd" id="1_d0q8n"]
 [ext_resource type="Texture2D" uid="uid://bgmom3gbpbayn" path="res://assets/objective/tower_die_00.png" id="2_wq5tt"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://dcouqgpjpssas" path="res://assets/objective/tower_die_38.png" id="40_ck3d4"]
 [ext_resource type="Texture2D" uid="uid://djur8iermejvb" path="res://assets/objective/tower_die_39.png" id="41_i2v2r"]
 [ext_resource type="Texture2D" uid="uid://dvd3wfsqs0uo1" path="res://assets/objective/tower_idle_00.png" id="42_kan6w"]
+[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="43_owkq7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7kxxl"]
 animations = [{
@@ -193,5 +194,7 @@ animation = &"die"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, -3)
 shape = SubResource("RectangleShape2D_8kqft")
+
+[node name="Explosion" parent="." instance=ExtResource("43_owkq7")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

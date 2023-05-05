@@ -39,6 +39,7 @@ func set_health(value: int) -> void:
 		set_physics_process(false)
 		collision.set_deferred("disabled", true)
 		shooter.die()
+		$Explosion/AnimationPlayer.play("default_explosion")
 		tower_destroyed.emit()
 	
 func repair():

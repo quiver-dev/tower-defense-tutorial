@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://dd2i8vnnpxsxl"]
+[gd_scene load_steps=123 format=3 uid="uid://dd2i8vnnpxsxl"]
 
 [ext_resource type="PackedScene" uid="uid://bxqcw3ve5yu8b" path="res://entities/enemies/enemy.tscn" id="1_d2m0d"]
 [ext_resource type="Script" path="res://entities/enemies/helicopters/helicopter.gd" id="2_vysee"]
@@ -113,6 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5vpooor7mso" path="res://assets/enemies/helicopter/tier1/shadow_move_03.png" id="105_b0fxt"]
 [ext_resource type="Texture2D" uid="uid://drmec6elvj35h" path="res://assets/enemies/helicopter/tier1/shadow_move_04.png" id="106_6yv78"]
 [ext_resource type="Texture2D" uid="uid://bhubq80sphqcu" path="res://assets/enemies/helicopter/tier1/shadow_move_05.png" id="107_4qaa3"]
+[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="113_qdpce"]
 [ext_resource type="AudioStream" uid="uid://6i30cx6p5vit" path="res://assets/sounds/helicopter.wav" id="114_70imm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aab0f"]
@@ -580,11 +581,9 @@ target_desired_distance = 5.0
 path_max_distance = 40.0
 navigation_layers = 2
 
-[node name="Move" parent="StateMachine" index="0"]
-script = ExtResource("44_h3bam")
-
-[node name="ShootStationary" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("46_5gylw")
+[node name="DefaultSound" parent="." index="3"]
+stream = ExtResource("114_70imm")
+volume_db = 12.0
 
 [node name="Shooter" parent="." index="4" instance=ExtResource("43_m8067")]
 position = Vector2(-4, 0)
@@ -606,18 +605,18 @@ position = Vector2(32, 39)
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 sprite_frames = SubResource("SpriteFrames_n2uh6")
 
-[node name="Detector" parent="Shooter" index="2"]
+[node name="ShootSound" parent="Shooter" index="2"]
+stream = ExtResource("75_wd4uw")
+
+[node name="Detector" parent="Shooter" index="3"]
 collision_mask = 18
 
 [node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
 shape = SubResource("CircleShape2D_mdp10")
 
-[node name="LookAhead" parent="Shooter" index="3"]
+[node name="LookAhead" parent="Shooter" index="4"]
 target_position = Vector2(650, 2.08165e-12)
 collision_mask = 18
-
-[node name="ShootSound" parent="Shooter" index="5"]
-stream = ExtResource("75_wd4uw")
 
 [node name="Rotor" type="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_jww13")
@@ -630,9 +629,13 @@ sprite_frames = SubResource("SpriteFrames_p2nbl")
 animation = &"move"
 autoplay = "move"
 
-[node name="DefaultSound" parent="." index="7"]
-stream = ExtResource("114_70imm")
-volume_db = 12.0
+[node name="Explosion" parent="." index="7" instance=ExtResource("113_qdpce")]
+
+[node name="Move" parent="StateMachine" index="0"]
+script = ExtResource("44_h3bam")
+
+[node name="ShootStationary" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("46_5gylw")
 
 [node name="EntityHUD" parent="UI" index="0"]
 offset_left = -101.0

@@ -293,17 +293,17 @@ position = Vector2(11, 27)
 sprite_frames = SubResource("SpriteFrames_6uecc")
 animation = &"shoot_b"
 
-[node name="Detector" parent="Shooter" index="2"]
+[node name="ShootSound" parent="Shooter" index="2"]
+stream = ExtResource("52_j110b")
+
+[node name="Detector" parent="Shooter" index="3"]
 collision_mask = 64
 
 [node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
 shape = SubResource("CircleShape2D_4oasq")
 
-[node name="LookAhead" parent="Shooter" index="3"]
+[node name="LookAhead" parent="Shooter" index="4"]
 target_position = Vector2(1050, 2.08165e-12)
 collision_mask = 64
-
-[node name="ShootSound" parent="Shooter" index="5"]
-stream = ExtResource("52_j110b")
 
 [editable path="Shooter"]

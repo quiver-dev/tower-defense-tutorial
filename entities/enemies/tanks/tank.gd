@@ -9,3 +9,4 @@ func get_shooter() -> Shooter:
 func die() -> void:
 	super.die()
 	shooter.die()
+	$Explosion.get_node("AnimationPlayer").play("default_explosion")

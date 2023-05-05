@@ -274,6 +274,18 @@ position = Vector2(1120, 340)
 [node name="TowerSlot3" parent="." instance=ExtResource("8_l0hje")]
 position = Vector2(2572, 520)
 
+[node name="TowerSlot4" parent="." instance=ExtResource("8_l0hje")]
+position = Vector2(2600, 1220)
+
+[node name="TowerSlot5" parent="." instance=ExtResource("8_l0hje")]
+position = Vector2(1814, 1152)
+
+[node name="TowerSlot6" parent="." instance=ExtResource("8_l0hje")]
+position = Vector2(648, 1776)
+
+[node name="TowerSlot7" parent="." instance=ExtResource("8_l0hje")]
+position = Vector2(1868, 1760)
+
 [node name="AircraftNavRegion" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_nxq2u")

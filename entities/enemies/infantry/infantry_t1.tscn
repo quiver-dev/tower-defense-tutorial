@@ -111,7 +111,7 @@ shape = SubResource("RectangleShape2D_cagm2")
 avoidance_enabled = true
 radius = 24.0
 
-[node name="DefaultSound" parent="." index="4"]
+[node name="DefaultSound" parent="." index="3"]
 stream = ExtResource("19_my5tl")
 volume_db = -12.0
 

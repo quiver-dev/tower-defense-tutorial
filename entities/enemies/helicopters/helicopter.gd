@@ -11,6 +11,7 @@ func get_shooter() -> Shooter:
 func die() -> void:
 	super.die()
 	shooter.die()
+	$Explosion/AnimationPlayer.play("default_explosion")
 
 func _process(delta: float) -> void:
 	shooter.global_rotation = anim_sprite.global_rotation	
