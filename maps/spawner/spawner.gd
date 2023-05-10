@@ -14,13 +14,15 @@ signal enemies_defeated
 @onready var spawn_timer = $SpawnTimer as Timer
 @onready var spawn_container = $SpawnContainer as Node2D
 @onready var spawn_probabilities := {
-	"infantry": 80,
+	"infantry": 50,
+	"infantry2": 30,
 	"tank": 20,
 	"helicopter": 5,
 }
 
 var enemy_scenes := {
 	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
+	"infantry2": preload("res://entities/enemies/infantry/infantry_t2.tscn"),
 	"tank": preload("res://entities/enemies/tanks/tank.tscn"),
 	"helicopter": preload("res://entities/enemies/helicopters/helicopter.tscn"),
 }
