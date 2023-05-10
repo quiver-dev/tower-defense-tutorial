@@ -2,6 +2,7 @@ class_name Objective
 extends Area2D
 
 signal health_changed(health: int)
+signal objective_destroyed
 
 @export var health := 500:
 	set = set_health
@@ -21,4 +22,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Infantry:
 		var infantry = body as Infantry
 		health -= infantry.objective_damage
+		infantry.enemy_removed.emit()
 		infantry.queue_free()
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if anim_sprite.animation == "die":
+		objective_destroyed.emit()

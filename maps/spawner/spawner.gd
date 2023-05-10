@@ -4,6 +4,7 @@ extends Node2D
 signal countdown_started(seconds: float)
 signal wave_started(current_wave: int)
 signal enemy_spawned(enemy: Enemy)
+signal enemies_defeated
 
 @export_range(0.5, 5.0, 0.5) var spawn_rate: float = 2.0
 @export var wave_count: int = 3
@@ -27,6 +28,7 @@ var enemy_scenes := {
 var spawn_locations := []
 var current_wave = 0
 var current_enemy_count = 0
+var _enemy_removed_count = 0
 
 func _ready() -> void:
 	for marker in spawn_container.get_children():
@@ -34,17 +36,20 @@ func _ready() -> void:
 	wave_timer.start()
 	await owner.ready
 	countdown_started.emit(wave_timer.time_left)
+
 	
 func _start_wave():
 	current_wave += 1
 	spawn_timer.start()
 	current_enemy_count = 0
 	wave_started.emit(current_wave)
+
 	
 func _end_wave():
 	if current_wave < wave_count:
 		wave_timer.start()
 		countdown_started.emit(wave_timer.time_left)
+
 	
 func _spawn_new_enemy(enemy_name: String):
 	var enemy: Enemy = enemy_scenes[enemy_name].instantiate()
@@ -53,10 +58,13 @@ func _spawn_new_enemy(enemy_name: String):
 	enemy.position = spawn_marker.position
 	current_enemy_count += 1
 	enemy_spawned.emit(enemy)
+	enemy.enemy_removed.connect(_on_enemy_removed)
+
 
 func _on_wave_timer_timeout() -> void:
 	_start_wave()
-		
+
+
 func _on_spawn_timer_timeout() -> void:
 	if current_enemy_count < enemies_per_wave_count:
 		_spawn_new_enemy(_pick_enemy())
@@ -64,7 +72,8 @@ func _on_spawn_timer_timeout() -> void:
 		spawn_timer.start(spawn_delay)
 	else:
 		_end_wave()
-		
+
+
 func _pick_enemy() -> String:
 	var tot_probability: int = 0
 	for key in spawn_probabilities.keys():
@@ -77,4 +86,9 @@ func _pick_enemy() -> String:
 			break
 		rand_number -= spawn_probabilities[key]
 	return enemy_name
-	
+
+
+func _on_enemy_removed():
+	_enemy_removed_count += 1
+	if _enemy_removed_count == wave_count * enemies_per_wave_count:
+		enemies_defeated.emit()

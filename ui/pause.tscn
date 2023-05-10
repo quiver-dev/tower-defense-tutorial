@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://wp2xxnx6uw1u"]
+
+[ext_resource type="Texture2D" uid="uid://bhvxj8unagtcl" path="res://assets/ui/pause/pause.png" id="1_40k34"]
+[ext_resource type="Script" path="res://ui/pause.gd" id="1_ds8cs"]
+
+[sub_resource type="Animation" id="Animation_27gmc"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(460, 1200), Vector2(460, 200), Vector2(460, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vaah"]
+_data = {
+"show": SubResource("Animation_27gmc")
+}
+
+[node name="Pause" type="Panel"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -240.0
+offset_right = 500.0
+offset_bottom = 260.005
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ds8cs")
+
+[node name="Sections" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.5
+offset_top = -67.0
+offset_right = 183.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="TextureRect" parent="Sections"]
+layout_mode = 2
+texture = ExtResource("1_40k34")
+stretch_mode = 5
+
+[node name="Resume" type="Button" parent="Sections"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "RESUME"
+
+[node name="Restart" type="Button" parent="Sections"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "RESTART"
+
+[node name="Exit" type="Button" parent="Sections"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "EXIT	"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6vaah")
+}
+
+[connection signal="pressed" from="Sections/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Sections/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Sections/Exit" to="." method="_on_exit_pressed"]

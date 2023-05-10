@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://carh6bbm1af4b"]
+[gd_scene load_steps=16 format=3 uid="uid://carh6bbm1af4b"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_1i8l6"]
 [ext_resource type="Texture2D" uid="uid://ix8s1c31gft5" path="res://assets/ui/heads_up/headsup_panel.png" id="1_gn7ca"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bqx30c34ubc70" path="res://assets/ui/heads_up/lifebar.png" id="4_enk3r"]
 [ext_resource type="Texture2D" uid="uid://cwpm0bncljojn" path="res://assets/ui/heads_up/coin_icon.png" id="5_af6wl"]
 [ext_resource type="Texture2D" uid="uid://2bx2lgilbqsm" path="res://assets/ui/heads_up/currency_window.png" id="6_mgoin"]
+[ext_resource type="PackedScene" uid="uid://wp2xxnx6uw1u" path="res://ui/pause.tscn" id="8_qxaai"]
+[ext_resource type="PackedScene" uid="uid://dkovbmmfciv1f" path="res://ui/game_over.tscn" id="9_lnowy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2s2v"]
 texture = ExtResource("1_gn7ca")
@@ -27,6 +29,7 @@ modulate_color = Color(1, 1, 1, 0.627451)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nltwi"]
 
 [node name="HUD" type="CanvasLayer"]
+layer = 5
 script = ExtResource("1_1i8l6")
 
 [node name="Control" type="Control" parent="."]
@@ -140,5 +143,41 @@ text = "5"
 [node name="Timer" type="Timer" parent="Control/NextWave"]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause" parent="Menus" instance=ExtResource("8_qxaai")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1000.0
+offset_bottom = 500.005
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameOver" parent="Menus" instance=ExtResource("9_lnowy")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 516.0
+offset_top = 294.0
+offset_right = 1516.0
+offset_bottom = 794.004
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="timeout" from="Control/NextWave/Timer" to="." method="_on_timer_timeout"]

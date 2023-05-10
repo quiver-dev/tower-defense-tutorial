@@ -2,6 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 signal enemy_died(enemy: Enemy)
+signal enemy_removed # emitted when enemy dies or reaches objective
 
 @export var speed := 150
 @export var rot_speed: float = 10.0
@@ -71,6 +72,7 @@ func die() -> void:
 
 func _on_animated_sprite_2d_animation_finished():
 	if anim_sprite.animation == "die":
+		enemy_removed.emit()
 		queue_free()
 		
 func _on_shooter_has_shot(reload_time):
