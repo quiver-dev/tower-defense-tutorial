@@ -47,6 +47,8 @@ func _on_enemy_died(enemy: Enemy):
 func _game_over():
 	var hud = camera.hud as HUD
 	hud.get_node("Menus/GameOver").enable()
+	# Prevent pausing during game over screen
+	hud.get_node("Menus/Pause").queue_free()
 	
 func _on_objective_destroyed():
 	_game_over()
