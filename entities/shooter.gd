@@ -6,9 +6,9 @@ signal has_shot(reload_time: float)
 @export var fire_rate: float = 0.1
 @export var rot_speed: float = 5.0
 @export var projectile_type: PackedScene
-@export var projectile_spread: float = 0.2
 @export var projectile_speed: int = 1000
 @export var projectile_damage: int = 3
+@export var projectile_spread: float = 0.0
 
 var targets: Array[Node2D]
 var can_shoot := true
@@ -62,7 +62,7 @@ func _instantiate_projectile(_position: Vector2, target: Node2D) -> void:
 		map.add_child(projectile)
 	else:
 		owner.add_child(projectile)
-	projectile.start(_position, rotation, projectile_speed, projectile_damage, target)
+	projectile.start(_position, rotation + randf_range(-projectile_spread, projectile_spread), projectile_speed, projectile_damage, target)
 	projectile.collision_mask = $Detector.collision_mask
 
 func shoot() -> void:

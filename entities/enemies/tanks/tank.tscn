@@ -392,6 +392,7 @@ fire_rate = 3.0
 rot_speed = 4.0
 projectile_type = ExtResource("32_ic5om")
 projectile_damage = 25
+projectile_spread = 0.1
 
 [node name="Gun" parent="Shooter" index="0"]
 sprite_frames = SubResource("SpriteFrames_a5og6")

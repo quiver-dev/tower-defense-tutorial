@@ -5,6 +5,9 @@
 [node name="GatlingTower" instance=ExtResource("1_y4l16")]
 tower_type = "gatling"
 
+[node name="Shooter" parent="." index="2"]
+projectile_spread = 0.08
+
 [node name="Muzzle2" type="Marker2D" parent="Shooter/Gun" index="1"]
 position = Vector2(61, 19)
 

@@ -207,6 +207,7 @@ rot_speed = 2.5
 projectile_type = ExtResource("2_gakpf")
 projectile_speed = 800
 projectile_damage = 20
+projectile_spread = 0.05
 
 [node name="Gun" parent="Shooter" index="0"]
 position = Vector2(7, -3)
@@ -216,16 +217,16 @@ sprite_frames = SubResource("SpriteFrames_u8ddm")
 position = Vector2(58, -2)
 sprite_frames = SubResource("SpriteFrames_65kho")
 
-[node name="Detector" parent="Shooter" index="2"]
+[node name="ShootSound" parent="Shooter" index="2"]
+stream = ExtResource("42_yapq6")
+
+[node name="Detector" parent="Shooter" index="3"]
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="Shooter/Detector" index="0"]
 shape = SubResource("CircleShape2D_21ve2")
 
-[node name="LookAhead" parent="Shooter" index="3"]
+[node name="LookAhead" parent="Shooter" index="4"]
 collision_mask = 32
-
-[node name="ShootSound" parent="Shooter" index="5"]
-stream = ExtResource("42_yapq6")
 
 [editable path="Shooter"]
