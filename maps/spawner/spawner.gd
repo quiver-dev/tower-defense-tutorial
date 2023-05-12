@@ -10,27 +10,26 @@ signal enemies_defeated
 @export var wave_count: int = 3
 @export var enemies_per_wave_count: int = 10
 
-@onready var wave_timer = $WaveTimer as Timer
-@onready var spawn_timer = $SpawnTimer as Timer
-@onready var spawn_container = $SpawnContainer as Node2D
-@onready var spawn_probabilities := {
-	"infantry": 50,
-	"infantry2": 30,
-	"tank": 20,
-	"helicopter": 5,
-}
-
 var enemy_scenes := {
 	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
 	"infantry2": preload("res://entities/enemies/infantry/infantry_t2.tscn"),
 	"tank": preload("res://entities/enemies/tanks/tank.tscn"),
 	"helicopter": preload("res://entities/enemies/helicopters/helicopter.tscn"),
 }
-
 var spawn_locations := []
-var current_wave = 0
-var current_enemy_count = 0
-var _enemy_removed_count = 0
+var current_wave := 0
+var current_enemy_count := 0
+var _enemy_removed_count := 0
+
+@onready var wave_timer := $WaveTimer as Timer
+@onready var spawn_timer := $SpawnTimer as Timer
+@onready var spawn_container := $SpawnContainer as Node2D
+@onready var spawn_probabilities := {
+	"infantry": 50,
+	"infantry2": 30,
+	"tank": 20,
+	"helicopter": 5,
+}
 
 func _ready() -> void:
 	for marker in spawn_container.get_children():
@@ -39,20 +38,20 @@ func _ready() -> void:
 	await owner.ready
 	countdown_started.emit(wave_timer.time_left)
 
-	
+
 func _start_wave():
 	current_wave += 1
 	spawn_timer.start()
 	current_enemy_count = 0
 	wave_started.emit(current_wave)
 
-	
+
 func _end_wave():
 	if current_wave < wave_count:
 		wave_timer.start()
 		countdown_started.emit(wave_timer.time_left)
 
-	
+
 func _spawn_new_enemy(enemy_name: String):
 	var enemy: Enemy = enemy_scenes[enemy_name].instantiate()
 	get_parent().add_child(enemy)

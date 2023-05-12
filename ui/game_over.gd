@@ -6,7 +6,7 @@ func enable():
 	get_tree().paused = true
 	anim_player.play("show")
 
-	
+
 func _hide():
 	get_tree().paused = false
 	visible = false

@@ -18,6 +18,7 @@ func set_health(value: int) -> void:
 		anim_sprite.play("die")
 		$Explosion.get_node("AnimationPlayer").play("big_explosion")
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Infantry:
 		var infantry = body as Infantry

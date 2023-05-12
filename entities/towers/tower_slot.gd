@@ -1,7 +1,9 @@
 extends Area2D
 
-@onready var tower_popup = $UI/TowerPopup as CanvasLayer
-@onready var tower_actions = $UI/TowerActions as VBoxContainer
+const PRICE_LABEL_PATH := "UI/TowerPopup/Background/Panel/Towers/%s/Label"
+
+@onready var tower_popup := $UI/TowerPopup as CanvasLayer
+@onready var tower_actions := $UI/TowerActions as VBoxContainer
 
 var _towers_to_build := {
 	"gatling": preload("res://entities/towers/gatling_tower.tscn"),
@@ -10,8 +12,6 @@ var _towers_to_build := {
 }
 var tower : Tower
 var map : Map
-
-const PRICE_LABEL_PATH := "UI/TowerPopup/Background/Panel/Towers/%s/Label"
 
 func _ready():
 	map = find_parent("Map")

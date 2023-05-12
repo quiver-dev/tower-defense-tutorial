@@ -1,6 +1,6 @@
 extends State
 
-@onready var enemy = owner as Enemy
+@onready var enemy := owner as Enemy
 @onready var shooter : Shooter = enemy.get_shooter()
 
 func enter(sm: StateMachine, prev_state: State) -> void:
@@ -12,6 +12,7 @@ func enter(sm: StateMachine, prev_state: State) -> void:
 			var objective = shooter.targets.pop_at(i)
 			shooter.targets.push_front(objective)
 			break
+
 
 func update(delta: float) -> void:
 	if shooter:

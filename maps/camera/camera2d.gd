@@ -1,17 +1,18 @@
 extends Camera2D
 
-@export var min_zoom: float = 0.25
-@export var max_zoom: float = 1.0
-@export var zoom_rate: float = 16.0
-@export var zoom_delta: float = 0.1
-@export var drag_speed: float = 4.0
+@export var min_zoom := 0.25
+@export var max_zoom := 1.0
+@export var zoom_rate := 16.0
+@export var zoom_delta := 0.1
+@export var drag_speed := 4.0
 
 @onready var target_zoom: float = zoom.x
-@onready var hud = $HUD as HUD
+@onready var hud := $HUD as HUD
 
 func _physics_process(delta: float) -> void:
 	zoom.x = lerp(zoom.x, target_zoom, zoom_rate * delta)
 	zoom.y = lerp(zoom.y, target_zoom, zoom_rate * delta)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

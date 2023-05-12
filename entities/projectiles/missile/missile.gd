@@ -1,6 +1,5 @@
 extends Projectile
 
-
 @export var steer_force := 40.0
 
 var _acceleration: Vector2

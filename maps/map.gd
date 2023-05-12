@@ -3,17 +3,18 @@ extends Node2D
 
 signal money_changed(money: int)
 
-@onready var tilemap := $TileMap as TileMap
-@onready var camera = $Camera2D as Camera2D
-@onready var objective = $Objective as Objective
-@onready var spawner = $Spawner as Spawner
-
 @export var starting_money := 5000
+
 var money : int:
 	set(m):
 		money = m
 		money_changed.emit(money)
 var tower_costs : Dictionary
+
+@onready var tilemap := $TileMap as TileMap
+@onready var camera := $Camera2D as Camera2D
+@onready var objective := $Objective as Objective
+@onready var spawner := $Spawner as Spawner
 
 func _ready():
 	# initialize camera
@@ -40,18 +41,22 @@ func _ready():
 	
 func _on_enemy_spawned(enemy: Enemy):
 	enemy.enemy_died.connect(_on_enemy_died)
-	
+
+
 func _on_enemy_died(enemy: Enemy):
 	money += enemy.kill_reward
-	
+
+
 func _game_over():
 	var hud = camera.hud as HUD
 	hud.get_node("Menus/GameOver").enable()
 	# Prevent pausing during game over screen
 	hud.get_node("Menus/Pause").queue_free()
-	
+
+
 func _on_objective_destroyed():
 	_game_over()
+
 
 func _on_enemies_defeated():
 	_game_over()
