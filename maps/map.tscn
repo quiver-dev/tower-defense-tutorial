@@ -251,6 +251,11 @@ position = Vector2(3930, 1323)
 
 [node name="Camera2D" parent="." instance=ExtResource("4_ugg6l")]
 position = Vector2(576, 314)
+min_zoom = 0.25
+max_zoom = 1.0
+zoom_rate = 16.0
+zoom_delta = 0.1
+drag_speed = 4.0
 
 [node name="Spawner" parent="." instance=ExtResource("5_jhdu7")]
 

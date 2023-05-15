@@ -10,8 +10,8 @@ var _towers_to_build := {
 	"cannon": preload("res://entities/towers/cannon_tower.tscn"),
 	"missile": preload("res://entities/towers/missile_tower.tscn")
 }
-var tower : Tower
-var map : Map
+var tower: Tower
+var map: Map
 
 func _ready():
 	map = find_parent("Map")
