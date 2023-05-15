@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bswr4r1sn2dki" path="res://entities/shooter.tscn" id="3_cw0b1"]
 [ext_resource type="AudioStream" uid="uid://dkjcbquvlvltr" path="res://assets/sounds/gatling.wav" id="4_ppwhr"]
 [ext_resource type="PackedScene" uid="uid://tyfxjrygr03c" path="res://ui/entity_hud.tscn" id="4_psd3c"]
-[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="5_14fh1"]
+[ext_resource type="PackedScene" uid="uid://crppyn467jwhu" path="res://entities/explosion_vfx/explosion.tscn" id="5_14fh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawuj"]
 size = Vector2(119, 114)

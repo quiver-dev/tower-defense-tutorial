@@ -79,7 +79,7 @@
 [ext_resource type="AudioStream" uid="uid://cpkewwd6hde3p" path="res://assets/sounds/tank_shell.wav" id="75_uuxag"]
 [ext_resource type="Script" path="res://entities/enemies/states/shoot_stationary_state.gd" id="76_ka8fe"]
 [ext_resource type="AudioStream" uid="uid://dg0bq2gev32es" path="res://assets/sounds/tank.wav" id="79_ledhq"]
-[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="80_3hdrf"]
+[ext_resource type="PackedScene" uid="uid://crppyn467jwhu" path="res://entities/explosion_vfx/explosion.tscn" id="80_3hdrf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o85js"]
 animations = [{

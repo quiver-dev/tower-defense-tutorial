@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvn8uh11r13wr"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dvw3hr7iyr2c6" path="res://assets/towers/single/tier1/base_idle_00.png" id="1_ewe1w"]
+[ext_resource type="Texture2D" uid="uid://dvw3hr7iyr2c6" path="res://assets/towers/cannon/tier1/base_idle_00.png" id="1_ewe1w"]
 [ext_resource type="Script" path="res://entities/towers/tower_slot.gd" id="1_y88k1"]
 [ext_resource type="PackedScene" uid="uid://bhm0jmto8qnw5" path="res://ui/tower_popup.tscn" id="3_d18hb"]
 [ext_resource type="Texture2D" uid="uid://ss61ed6jjgov" path="res://assets/ui/turret buttons/repair.png" id="4_s6hwn"]
