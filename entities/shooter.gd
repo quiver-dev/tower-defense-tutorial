@@ -28,6 +28,7 @@ func _on_detector_body_entered(body: Node2D) -> void:
 	if body not in targets:
 		targets.append(body)
 
+
 func _on_detector_body_exited(body: Node2D) -> void:
 	if body in targets:
 		targets.erase(body)

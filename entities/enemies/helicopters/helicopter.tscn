@@ -113,7 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5vpooor7mso" path="res://assets/enemies/helicopter/tier1/shadow_move_03.png" id="105_b0fxt"]
 [ext_resource type="Texture2D" uid="uid://drmec6elvj35h" path="res://assets/enemies/helicopter/tier1/shadow_move_04.png" id="106_6yv78"]
 [ext_resource type="Texture2D" uid="uid://bhubq80sphqcu" path="res://assets/enemies/helicopter/tier1/shadow_move_05.png" id="107_4qaa3"]
-[ext_resource type="PackedScene" uid="uid://grhv571srwk8" path="res://entities/explosion_vfx/explosion.tscn" id="113_qdpce"]
+[ext_resource type="PackedScene" uid="uid://crppyn467jwhu" path="res://entities/explosion_vfx/explosion.tscn" id="113_qdpce"]
 [ext_resource type="AudioStream" uid="uid://6i30cx6p5vit" path="res://assets/sounds/helicopter.wav" id="114_70imm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aab0f"]

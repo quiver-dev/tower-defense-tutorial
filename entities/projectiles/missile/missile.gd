@@ -1,20 +1,11 @@
 extends Projectile
 
-@export var steer_force := 40.0
+@export var rotation_speed := 600.0
 
-var _acceleration: Vector2
-
-func _physics_process(delta: float) -> void:
-	if is_instance_valid(target):
-		_acceleration += _steer()
-		velocity += _acceleration * delta
-		#velocity = velocity.limit_length(speed)
+func _physics_process(delta):
+	if target and is_instance_valid(target):
+		var desired_velocity := global_position.direction_to(target.global_position) * speed
+		var velocity_change: Vector2 = velocity.direction_to(desired_velocity) * rotation_speed * delta
+		velocity = (velocity + velocity_change).limit_length(speed)
 		rotation = velocity.angle()
 	global_position += velocity * delta
-
-
-func _steer() -> Vector2:
-	# calculate the desired direction vector at maximum speed
-	var desired := global_position.direction_to(target.global_position) * speed
-	# return the amount we can turn towards the desired direction
-	return velocity.direction_to(desired) * steer_force
