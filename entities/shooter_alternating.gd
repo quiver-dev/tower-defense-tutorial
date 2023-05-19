@@ -4,7 +4,7 @@ var _shoot_a := true
 	
 func shoot() -> void:
 	can_shoot = false
-	var muzzle : Marker2D
+	var muzzle: Marker2D
 	if _shoot_a:
 		muzzle = gun.get_children()[0]
 		_play_animations("shoot_a")

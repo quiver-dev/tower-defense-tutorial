@@ -10,9 +10,9 @@ func _ready() -> void:
 	self.transition_to(start_state.name)
 
 
-func transition_to(new_state_name : String):
+func transition_to(new_state_name: String):
 	if has_node(new_state_name):
-		var prev_state : State = current_state
+		var prev_state: State = current_state
 		if current_state:
 			current_state.exit()
 		current_state = get_node(new_state_name)

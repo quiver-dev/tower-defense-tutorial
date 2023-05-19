@@ -3,7 +3,7 @@ extends Node
 
 var state_machine: StateMachine
 
-func enter(sm: StateMachine, prev_state: State) -> void:
+func enter(sm: StateMachine, _prev_state: State) -> void:
 	self.state_machine = sm
 
 

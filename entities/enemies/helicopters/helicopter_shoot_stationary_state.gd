@@ -1,7 +1,7 @@
 extends State
 
 @onready var enemy := owner as Enemy
-@onready var shooter : Shooter = enemy.get_shooter()
+@onready var shooter: Shooter = enemy.get_shooter()
 
 func update(delta: float) -> void:
 	if shooter:

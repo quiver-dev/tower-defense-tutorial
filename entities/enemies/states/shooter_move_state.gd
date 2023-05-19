@@ -1,6 +1,6 @@
 extends MoveState
 
-@onready var shooter : Shooter
+@onready var shooter: Shooter
 
 func enter(sm: StateMachine, prev_state: State) -> void:
 	super(sm, prev_state)

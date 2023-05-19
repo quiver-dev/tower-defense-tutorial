@@ -28,10 +28,12 @@ func _ready() -> void:
 	var shooter = get_shooter()
 	if shooter:
 		shooter.has_shot.connect(self._on_shooter_has_shot)
-	
+
+
 func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: float) -> float:
 	return lerp_angle(start_rot, target_rot, _speed * delta)
-	
+
+
 func _move(delta: float) -> void:
 	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	var cur_agent_pos: Vector2 = global_position
@@ -46,9 +48,11 @@ func _move(delta: float) -> void:
 	collision_shape.global_rotation = _calculate_rot(collision_shape.global_rotation,
 			velocity.angle(), rot_speed, delta)
 
+
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
 	
 func set_health(value: int) -> void:
 	health = max(0, value)
@@ -56,7 +60,8 @@ func set_health(value: int) -> void:
 		hud.health_bar.value = health
 	if health == 0:
 		state_machine.transition_to("Die")
-		
+
+
 func get_shooter() -> Shooter:
 	return null
 

@@ -5,11 +5,11 @@ signal money_changed(money: int)
 
 @export var starting_money := 5000
 
-var money : int:
+var money: int:
 	set(m):
 		money = m
 		money_changed.emit(money)
-var tower_costs : Dictionary
+var tower_costs: Dictionary
 
 @onready var tilemap := $TileMap as TileMap
 @onready var camera := $Camera2D as Camera2D

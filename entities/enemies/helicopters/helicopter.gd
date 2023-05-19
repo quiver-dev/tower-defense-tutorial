@@ -15,7 +15,7 @@ func die() -> void:
 	$Explosion/AnimationPlayer.play("default_explosion")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	shooter.global_rotation = anim_sprite.global_rotation	
 	rotor.global_rotation = anim_sprite.global_rotation
 	shadow.global_rotation = anim_sprite.global_rotation
