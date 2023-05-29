@@ -56,7 +56,7 @@ func _spawn_new_enemy(enemy_name: String):
 	var enemy: Enemy = enemy_scenes[enemy_name].instantiate()
 	get_parent().add_child(enemy)
 	var spawn_marker = spawn_locations.pick_random()
-	enemy.position = spawn_marker.position
+	enemy.global_position = spawn_marker.global_position
 	current_enemy_count += 1
 	enemy_spawned.emit(enemy)
 	enemy.enemy_removed.connect(_on_enemy_removed)
