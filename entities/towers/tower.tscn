@@ -24,6 +24,8 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_xawuj")
 
 [node name="Shooter" parent="." instance=ExtResource("3_cw0b1")]
+rot_speed = 10.0
+projectile_damage = 5
 
 [node name="MuzzleFlash" parent="Shooter" index="1"]
 autoplay = "idle"
