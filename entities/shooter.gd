@@ -59,9 +59,7 @@ func _rotate_shooter(delta: float):
 
 
 func should_shoot() -> bool:
-	if can_shoot and lookahead.is_colliding():
-		return true
-	return false
+	return can_shoot and lookahead.is_colliding()
 
 
 func _instantiate_projectile(_position: Vector2, target: Node2D) -> void:
