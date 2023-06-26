@@ -414,6 +414,7 @@ collision_mask = 18
 shape = SubResource("CircleShape2D_jyxif")
 
 [node name="LookAhead" parent="Shooter" index="4"]
+target_position = Vector2(550, 2.08165e-12)
 collision_mask = 18
 
 [node name="DefaultSound" parent="." index="4"]
