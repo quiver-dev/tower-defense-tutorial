@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bm7ytbd6aerxn"]
 
 [ext_resource type="Texture2D" uid="uid://dvw3hr7iyr2c6" path="res://assets/towers/cannon/tier1/base_idle_00.png" id="1_ewe1w"]
 [ext_resource type="Script" path="res://entities/towers/tower_slot.gd" id="1_y88k1"]

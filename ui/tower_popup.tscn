@@ -38,10 +38,10 @@ offset_right = 217.0
 offset_bottom = 228.0
 theme_override_constants/separation = 10
 
-[node name="Gatling" type="HFlowContainer" parent="Background/Panel/Towers"]
+[node name="Gatling" type="VBoxContainer" parent="Background/Panel/Towers"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/v_separation = 10
+theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="Background/Panel/Towers/Gatling"]
 layout_mode = 2
@@ -55,10 +55,10 @@ text = "200
 "
 horizontal_alignment = 1
 
-[node name="Cannon" type="HFlowContainer" parent="Background/Panel/Towers"]
+[node name="Cannon" type="VBoxContainer" parent="Background/Panel/Towers"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/v_separation = 10
+theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="Background/Panel/Towers/Cannon"]
 layout_mode = 2
@@ -72,10 +72,10 @@ text = "500
 "
 horizontal_alignment = 1
 
-[node name="Missile" type="HFlowContainer" parent="Background/Panel/Towers"]
+[node name="Missile" type="VBoxContainer" parent="Background/Panel/Towers"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/v_separation = 10
+theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="Background/Panel/Towers/Missile"]
 layout_mode = 2
