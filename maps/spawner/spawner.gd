@@ -9,6 +9,13 @@ signal enemies_defeated
 @export_range(0.5, 5.0, 0.5) var spawn_rate: float = 2.0
 @export var wave_count: int = 3
 @export var enemies_per_wave_count: int = 10
+@export var spawn_probabilities := {
+	"infantry": 50,
+	"infantry2": 30,
+	"tank": 20,
+	"helicopter": 5,
+}
+
 
 var enemy_scenes := {
 	"infantry": preload("res://entities/enemies/infantry/infantry_t1.tscn"),
@@ -24,12 +31,6 @@ var _enemy_removed_count := 0
 @onready var wave_timer := $WaveTimer as Timer
 @onready var spawn_timer := $SpawnTimer as Timer
 @onready var spawn_container := $SpawnContainer as Node2D
-@onready var spawn_probabilities := {
-	"infantry": 50,
-	"infantry2": 30,
-	"tank": 20,
-	"helicopter": 5,
-}
 
 func _ready() -> void:
 	for marker in spawn_container.get_children():
