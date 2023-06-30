@@ -11,10 +11,11 @@ var _towers_to_build := {
 	"missile": preload("res://entities/towers/missile_tower.tscn")
 }
 var tower: Tower
-var map: Map
 
 func _ready():
-	map = find_parent("Map")
+	for tower_name in Global.tower_costs.keys():
+		var price_label := get_node(PRICE_LABEL_PATH % [tower_name.capitalize()]) as Label
+		price_label.text = str(Global.tower_costs[tower_name])
 
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -40,12 +41,12 @@ func _flash_ui(node: Node, color_hex: String):
 
 
 func _on_tower_popup_tower_requested(type: String):
-	if map and map.tower_costs[type] <= map.money:
+	if Global.tower_costs[type] <= Global.money:
 		tower = _towers_to_build[type].instantiate()
 		add_child(tower, true)
 		tower_popup.hide()
 		tower.tower_destroyed.connect(_on_tower_destroyed)
-		map.money -= map.tower_costs[type]
+		Global.money -= Global.tower_costs[type]
 	else:
 		var price_label := get_node(PRICE_LABEL_PATH % [type.capitalize()]) as Label
 		_flash_ui(price_label, "ff383f")
@@ -57,12 +58,12 @@ func _on_tower_destroyed():
 
 
 func _on_repair_pressed():
-	var tower_cost: int = map.tower_costs[tower.tower_type]
+	var tower_cost: int = Global.tower_costs[tower.tower_type]
 	var missing_health_pct: float = float(tower.max_health - tower.health) / tower.max_health
 	var repair_cost: int = floor(tower_cost * missing_health_pct)
-	if repair_cost <= map.money:
+	if repair_cost <= Global.money:
 		tower.repair()
-		map.money -= repair_cost
+		Global.money -= repair_cost
 		tower_actions.visible = false
 	else:
 		var repair_btn := tower_actions.get_node("Repair") as Button
@@ -75,10 +76,10 @@ func _on_exchange_pressed():
 
 
 func _on_sell_pressed():
-	var tower_cost: int = map.tower_costs[tower.tower_type]
+	var tower_cost: int = Global.tower_costs[tower.tower_type]
 	var remaining_health_pct: float = float(tower.health) / tower.max_health
 	var tower_value: int = floor(tower_cost * remaining_health_pct)
-	map.money += tower_value
+	Global.money += tower_value
 	tower.queue_free()
 	tower_actions.visible = false
 	tower = null

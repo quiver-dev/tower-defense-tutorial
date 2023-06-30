@@ -1,15 +1,6 @@
-class_name Map
 extends Node2D
 
-signal money_changed(money: int)
-
 @export var starting_money := 5000
-
-var money: int:
-	set(m):
-		money = m
-		money_changed.emit(money)
-var tower_costs: Dictionary
 
 @onready var tilemap := $TileMap as TileMap
 @onready var camera := $Camera2D as Camera2D
@@ -26,10 +17,8 @@ func _ready():
 	camera.limit_bottom = map_limits.end.y * tile_size.y
 	# initialize money and connect signals
 	var hud = camera.hud as HUD
-	money_changed.connect(hud._on_money_changed)
-	money = starting_money
-	var tower_costs_resource = load("res://entities/towers/tower_costs_json.tres")
-	tower_costs = tower_costs_resource.data
+	Global.money_changed.connect(hud._on_money_changed)
+	Global.money = starting_money
 	hud.initialize(objective.health)
 	objective.health_changed.connect(hud._on_objective_health_changed)
 	objective.objective_destroyed.connect(_on_objective_destroyed)
@@ -44,7 +33,7 @@ func _on_enemy_spawned(enemy: Enemy):
 
 
 func _on_enemy_died(enemy: Enemy):
-	money += enemy.kill_reward
+	Global.money += enemy.kill_reward
 
 
 func _game_over():
