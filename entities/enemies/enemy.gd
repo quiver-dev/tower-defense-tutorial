@@ -37,7 +37,7 @@ func _calculate_rot(start_rot: float, target_rot: float, _speed: float, delta: f
 func _move(delta: float) -> void:
 	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
 	var cur_agent_pos: Vector2 = global_position
-	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed	
+	var new_velocity: Vector2 = cur_agent_pos.direction_to(next_path_pos) * speed
 	if not nav_agent.avoidance_enabled:
 		velocity = new_velocity
 		move_and_slide()
