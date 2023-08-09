@@ -12,6 +12,8 @@ func enter(sm: StateMachine, prev_state: State) -> void:
 			var objective = shooter.targets.pop_at(i)
 			shooter.targets.push_front(objective)
 			break
+	
+	enemy.nav_agent.set_velocity(Vector2.ZERO)
 
 
 func update(delta: float) -> void:
