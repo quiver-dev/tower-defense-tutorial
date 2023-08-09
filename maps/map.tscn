@@ -229,9 +229,9 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_j3s5g")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nxq2u"]
-vertices = PackedVector2Array(3499, -222, 3495, 1960, -99, 1965, -109, -220)
+vertices = PackedVector2Array(4734, -766, 4741, 4349, -257, 4351, -262, -771)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-109, -220, -99, 1965, 3495, 1960, 3499, -222)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-262, -771, -257, 4351, 4741, 4349, 4734, -766)])
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_dh14p")
@@ -305,7 +305,6 @@ position = Vector2(3760, 3526)
 position = Vector2(3474, 698)
 
 [node name="AircraftNavRegion" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_nxq2u")
 navigation_layers = 2
 

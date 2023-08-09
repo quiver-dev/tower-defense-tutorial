@@ -580,6 +580,10 @@ shape = SubResource("CapsuleShape2D_crba3")
 target_desired_distance = 5.0
 path_max_distance = 40.0
 navigation_layers = 2
+avoidance_enabled = true
+radius = 100.0
+avoidance_layers = 2
+avoidance_mask = 2
 
 [node name="DefaultSound" parent="." index="3"]
 stream = ExtResource("114_70imm")

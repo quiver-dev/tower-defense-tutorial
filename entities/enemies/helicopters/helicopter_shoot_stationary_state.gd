@@ -3,6 +3,11 @@ extends State
 @onready var enemy := owner as Enemy
 @onready var shooter: Shooter = enemy.get_shooter()
 
+func enter(sm: StateMachine, prev_state: State) -> void:
+	super(sm, prev_state)
+	enemy.nav_agent.set_velocity(Vector2.ZERO)
+
+
 func update(delta: float) -> void:
 	if shooter:
 		if shooter.targets.size() > 0:
