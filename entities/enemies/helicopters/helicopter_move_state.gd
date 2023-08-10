@@ -4,7 +4,7 @@ extends MoveState
 
 func enter(sm: StateMachine, prev_state: State) -> void:
 	super(sm, prev_state)
-	shooter = enemy.get_node("Shooter")
+	shooter = enemy.get_shooter()
 
 
 func update(delta: float) -> void:

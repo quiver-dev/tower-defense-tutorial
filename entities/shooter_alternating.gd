@@ -6,10 +6,10 @@ func shoot() -> void:
 	can_shoot = false
 	var muzzle: Marker2D
 	if _shoot_a:
-		muzzle = gun.get_children()[0]
+		muzzle = gun.get_child(0)
 		_play_animations("shoot_a")
 	else:
-		muzzle = gun.get_children()[1]
+		muzzle = gun.get_child(1)
 		_play_animations("shoot_b")
 	muzzle_flash.global_position = muzzle.global_position
 	shoot_sound.play()

@@ -262,9 +262,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crba3"]
-radius = 24.0
-height = 192.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5toij"]
+size = Vector2(180, 45)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2pdb"]
 animations = [{
