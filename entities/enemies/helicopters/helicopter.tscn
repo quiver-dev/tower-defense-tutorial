@@ -572,8 +572,7 @@ animation = &"move"
 autoplay = "move"
 
 [node name="CollisionShape2D" parent="." index="1"]
-rotation = 4.71239
-shape = SubResource("CapsuleShape2D_crba3")
+shape = SubResource("RectangleShape2D_5toij")
 
 [node name="NavigationAgent2D" parent="." index="2"]
 target_desired_distance = 5.0
