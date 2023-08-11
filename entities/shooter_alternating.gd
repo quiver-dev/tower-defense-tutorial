@@ -15,4 +15,5 @@ func shoot() -> void:
 	shoot_sound.play()
 	_instantiate_projectile(muzzle.global_position, targets.front())
 	firerate_timer.start(fire_rate)
+	has_shot.emit(firerate_timer.wait_time)
 	_shoot_a = !_shoot_a

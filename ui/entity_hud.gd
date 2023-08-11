@@ -19,14 +19,14 @@ func animate_reload_bar(duration: float) -> void:
 
 
 func _on_reload_bar_value_changed(value):
-	if value > reload_bar.max_value * 0.0:
-		reload_bar.self_modulate = RED
-	if value > reload_bar.max_value * 0.33:
-		reload_bar.self_modulate = YELLOW
-	if value > reload_bar.max_value * 0.66:
-		reload_bar.self_modulate = GREEN
 	if value == reload_bar.max_value:
 		reload_bar.hide()
+	elif value > reload_bar.max_value * 0.66:
+		reload_bar.self_modulate = GREEN
+	elif value > reload_bar.max_value * 0.33:
+		reload_bar.self_modulate = YELLOW
+	elif value > reload_bar.max_value * 0.0:
+		reload_bar.self_modulate = RED
 
 
 func _on_health_bar_value_changed(value):
