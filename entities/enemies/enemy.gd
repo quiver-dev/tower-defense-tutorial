@@ -73,6 +73,7 @@ func play_animation(anim_name: String) -> void:
 func die() -> void:
 	collision_shape.set_deferred("disabled", true)
 	speed = 0
+	nav_agent.set_velocity(Vector2.ZERO)
 	anim_sprite.play("die")
 	default_sound.stop()
 	enemy_died.emit(self)

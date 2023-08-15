@@ -29,5 +29,5 @@ func _on_reload_bar_value_changed(value):
 		reload_bar.self_modulate = RED
 
 
-func _on_health_bar_value_changed(value):
+func _on_health_bar_value_changed(value: int):
 	health_bar.self_modulate = RED if value <= health_bar.max_value / 4 else GREEN
