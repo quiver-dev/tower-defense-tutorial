@@ -29,6 +29,7 @@ visible = false
 
 [node name="TowerActions" type="VBoxContainer" parent="UI"]
 visible = false
+z_index = 1
 offset_left = 74.0
 offset_top = -44.0
 offset_right = 243.0
